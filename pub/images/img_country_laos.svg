@@ -1,0 +1,14 @@
+<svg width="61" height="40" viewBox="0 0 61 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="FLAGS" clip-path="url(#clip0_91_722)">
+<rect width="60" height="40" transform="translate(0.5)"/>
+<path id="Vector" d="M60.5 26.6604H0.5V40.0001H60.5V26.6604Z" fill="#CE1126"/>
+<path id="Vector_2" d="M60.5 0H0.5V13.3396H60.5V0Z" fill="#CE1126"/>
+<path id="Vector_3" d="M60.5 9.51196H0.5V30.5068H60.5V9.51196Z" fill="#002868"/>
+<path id="Vector_4" d="M39.609 19.9906C39.609 25.0309 35.5332 29.1048 30.4906 29.1048C25.4479 29.1048 21.3721 25.0309 21.3721 19.9906C21.3721 14.9504 25.4479 10.8765 30.4906 10.8765C35.5332 10.8765 39.609 14.9504 39.609 19.9906Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_91_722">
+<rect width="60" height="40" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
+</svg>

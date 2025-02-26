@@ -1,0 +1,686 @@
+/* ------------------------------ PC(main) Guide ------------------------------ */
+@media screen and (max-width:1600px){
+
+}
+
+/* ------------------------------ PC Guide ------------------------------ */
+@media screen and (max-width:1460px){
+/* header */
+	.header {height:80px;}
+	.header .logo {left:30px; line-height:80px;}
+	.header .btn_menu {right:30px;}
+	.header .btn_search {right:82px;}
+	.header .gnb .menu {padding:0 60px;}
+	.header .gnb .menu > a {font-size:17px; line-height:80px;}
+	.header .sub_wrap {top:80px;}
+	.header .sub_wrap .tit {width:30%; font-size:28px;}
+	.header .sub_wrap .con {width:70%; padding-left:60px; gap:40px;}
+	.header .sub_wrap .smenu {padding-left:100px;}
+	.header .sub_wrap .smenu > a {font-size:18px;}
+	.header .sub_wrap .smenu .snb {gap:30px;}
+	.header .sub_wrap .smenu .snb a {font-size:18px;}
+	.header .search_area {top:80px; padding:60px 20px;}
+	.header .sitemap .menu {gap:60px;}
+	.header .sitemap .menu > a {font-size:28px;}
+	.header .sitemap .snb a {font-size:22px;}
+	.header.hover .gnb .menu {padding:0 70px;}
+/* footer */
+	.country_area {padding:70px 20px;}
+	.country_area .swiper-slide {width:160px;}
+	.footer .flex .logo {height:50px;}
+	.footer .fnavi {width:70%;}
+/* main+sub */
+	.btns {gap:14px;}
+	.btns > * {gap:8px; font-size:14px; padding:0 30px;}
+	.btns .btn_slim {padding:0 16px;}
+/* main */
+	.mvisual {padding-bottom:60px;}
+	.mvisual .txt strong {font-size:50px;}
+	.mvisual .txt p {font-size:20px; margin-top:30px;}
+	.mc01 {padding:120px 0 100px;}
+	.mc01 .txt span {gap:8px; font-size:20px;}
+	.mc01 .txt span:before {width:20px; height:20px;}
+	.mc01 .txt strong {font-size:32px; padding-bottom:30px; margin-bottom:38px;}
+	.mc01 .txt p {font-size:20px;}
+	.mc01 .btns {margin-top:60px;}
+	.mc02 .txt {width:30%;}
+	.mc02 .tit {font-size:60px;}
+	.mc02 .list {width:70%; gap:14px;}
+/* sub */
+	.svisual {height:440px;}
+	.svisual span {font-size:50px;}
+	.svisual .inner {margin-bottom:-35px;}
+	.svisual .aside a {font-size:18px; line-height:70px;}
+	.svisual.g09,
+	.svisual.g00 {height:300px;}
+	.svisual.g09 span,
+	.svisual.g00 span {margin-top:25px;}
+
+	.container {font-size:18px; padding:100px 0; min-height:calc(100vh - 760px);}
+	.g09 + .container,
+	.g00 + .container {min-height:calc(100vh - 600px);}
+	.btit {font-size:30px;}
+	.lr_area .tit {width:20%; font-size:28px;}
+	.lr_area .con {width:80%;}
+	.tbl th,
+	.tbl td {font-size:16px;}
+	.tbl th {width:160px;}
+	.tbl col.w200 {width:16%;}
+	.dots_list li {padding-left:10px;}
+/* Program Overview */
+	.overview02 .slick-prev {left:20px; margin-left:0;}
+	.overview02 .slick-next {right:20px; margin-right:0;}
+/* Steering Committee, Study Group */
+	.committee01,
+	.committee03 {gap:30px;}
+	.committee01 li,
+	.committee03 li {width:calc((100% - 90px)/4);}
+	.committee01 .imgfit {height:11vw;}
+	.committee02 {gap:30px;}
+	.committee02 li {width:calc((100% - 60px)/3);}
+	.committee02 li .imgfit,
+	.committee03 li .imgfit {height:20vw;}
+/* Study Report */
+	.study_report_top {padding:60px 0; font-size:30px;}
+	.study_report_top .btns {margin-top:90px;}
+	.report01 {padding-top:30px; gap:40px;}
+	.report01 .imgfit {width:38%;}
+	.report01 .txt {width:calc(62% - 40px);}
+	.report01 .txt span {font-size:20px; line-height:32px; padding-left:30px; margin-bottom:12px;}
+	.report01 .txt .tit {font-size:32px; padding-bottom:30px; margin-bottom:20px;}
+	.report01 .txt .tt {font-size:22px; margin-bottom:6px;}
+	.report01 .txt .dots_list {padding-bottom:22px; margin-bottom:22px;}
+	.report01 .txt .dots_list li:before {top:12px;}
+	.report01 .txt .btns {margin-top:28px;}
+	.policy_country {padding-bottom:30px; margin-bottom:30px; font-size:16px;}
+	.gbox .btns {margin-top:14px;}
+/* Meet Startups */
+	.meet_startups {gap:30px;}
+	.meet_startups a {width:calc((100% - 90px)/4); padding:15px;}
+	.meet_startups .imgfit {height:13vw;}
+	.tag {gap:6px; padding:14px 0 6px;}
+	.tag li {font-size:13px; line-height:26px; height:26px; padding:0 6px;}
+	.meet_startups .name {font-size:20px;}
+	.meet_startups p {font-size:16px;}
+/* popup */
+	.popup .inbox {padding:30px;}
+/* Meet Investors */
+	.meet_investors {gap:20px;}
+	.meet_investors > * {gap:26px; padding:26px;}
+	.meet_investors .imgfit {width:220px; height:147px;}
+	.meet_investors .txt {width:calc(100% - 246px);}
+	.meet_investors .name {font-size:22px; line-height:34px; padding-bottom:14px; margin-bottom:14px;}
+	.meet_investors p {font-size:16px;}
+
+	.meet_investors dl {font-size:16px; margin-bottom:4px;}
+/* board list */
+	.board_list col.w16 {width:140px;}
+	.board_list col.w18 {width:160px;}
+	.board_list th {padding:30px 0;}
+	.board_list td {padding:22px 28px;}
+/* board view */
+	.board_view .tit {font-size:32px;}
+	.board_view .info {gap:14px;}
+/* Gallery */
+	.gall_list {gap:50px 20px;}
+	.gall_list a {width:calc((100% - 60px)/4);}
+	.gall_list .imgfit {height:15vw;}
+	.gall_list .imgfit .bg span {font-size:14px; line-height:34px; padding:0 15px;}
+	.gall_list p {margin-top:14px;}
+/* board write */
+	.board_write th {width:240px;}
+	.board_write th p {font-size:13px;}
+	.board_write td input {height:54px; padding:0 16px;}
+	.board_write td textarea {height:220px;}
+/* APT talks */
+	.apt_talks_start .tit {font-size:35px;}
+	.apt_talks_start p {font-size:18px;}
+	.apt_talks_start dl {margin:35px 0;}
+/* Search */
+	.no_search .tt {font-size:35px; margin-bottom:20px;}
+	.tabs {display:flex; border-bottom:#EBEBEB 1px solid; margin-bottom:80px;}
+	.tabs > * {font-size:18px; line-height:20px; height:80px; display:flex; justify-content:center; align-items:center;}
+}
+
+/* ------------------------------ Hover ------------------------------ */
+@media screen and (min-width:1024px){
+	.header.hover .sub_wrap {animation:sub_wrap_open .5s forwards;}
+	@keyframes sub_wrap_open {
+		0% {opacity:0; pointer-events:none; user-select:none;}
+		100% {opacity:1; pointer-events:auto; user-select:auto;}
+	}
+	.header .sub_wrap .smenu:hover > a {color:#007B5C; font-weight:600;}
+	.header .sub_wrap .smenu .snb a:hover {color:#007B5C; font-weight:500; text-decoration:underline;}
+	.header.hover {background:#fff; border-bottom:none;}
+	.header.hover .logo {background-image: url('/pub/images/logo.svg');}
+	.header.hover .gnb .menu > a {color:#222;}
+	.header.hover .btn_search,
+	.header.hover .btn_menu p {background:#222;}
+
+	.btns > *:hover {background:#007B5C;}
+
+	.mc02 .list a:hover {color:#fff; background:#007B5C;}
+	.mc02 .list a:hover p {color:#fff;}
+	.mc02 .list a:hover:after {background:#fff;}
+
+	.svisual .aside {display:flex !important;}
+	.svisual .aside a:hover {color:#fff; background:#007B5C;}
+	.board_bottom .paging a:hover {background:#007B5C; color:#fff; font-weight:700; border-color:#007B5C;}
+	.gall_list a:hover .imgfit .bg {opacity:1;}
+	.tabs > *:hover {color:#007B5C; font-weight:600;}
+	.tabs > *:hover:after {left:0; width:100%;}
+}
+
+/* ------------------------------ Tablet PC ------------------------------ */
+@media screen and (max-width:1023px){
+/* header */
+	.header {height:60px;}
+	.header .logo {left:20px; line-height:60px;}
+	.header .btn_menu {right:20px;}
+	.header .gnb {display:none;}
+	.header .sub_wrap {display:none;}
+	.header .search_area {top:60px; padding:40px 20px;}
+	.header .search_area .inbox {height:50px; padding-right:80px;}
+	.header .search_area input {height:48px; padding:0 20px; font-size:16px;}
+	.header .search_area .btn {width:60px;}
+	.header .sitemap .menu {gap:40px;}
+	.header .sitemap .menu > a {font-size:24px;}
+	.header .sitemap .snb {height:110px;}
+	.header .sitemap .snb a {font-size:18px; line-height:26px; margin-bottom:15px;}
+	.header.hover .gnb .menu {padding:0 50px;}
+/* footer */
+	.country_area {padding:60px 20px;}
+	.footer {padding:40px 0 20px;}
+	.footer .flex .logo {height:40px; margin-bottom:40px;}
+	.footer .flex .links {gap:20px; margin-top:20px;}
+	.footer .flex .links a {font-size:14px;}
+	.footer .fnavi {display:none;}
+	.footer .copy {font-size:13px; padding-top:14px; margin-top:25px;}
+/* main+sub */
+	.btns {gap:10px;}
+	.btns > * {gap:6px; font-size:13px; padding:0 20px; line-height:50px; height:50px;}
+	.btns .btn_slim {padding:0 14px; line-height:34px; height:34px;}
+/* main */
+	.mvisual {padding-bottom:40px;}
+	.mvisual .txt strong {font-size:40px;}
+	.mvisual .txt p {font-size:18px; margin-top:25px;}
+	.mvisual .scroll {right:30px;}
+	.mvisual .scroll p {font-size:13px; line-height:80px; width:80px;}
+	.mc01 {padding:100px 0 80px;}
+	.mc01 .inner {gap:5%;}
+	.mc01 .txt {width:50%;}
+	.mc01 .txt span {gap:6px; font-size:18px;}
+	.mc01 .txt strong {font-size:28px; padding-bottom:20px; margin-bottom:28px;}
+	.mc01 .txt p {font-size:18px;}
+	.mc01 .btns {margin-top:40px;}
+	.mc01 .img {width:45%;}
+	.mc01 .img a {left:-50px; width:100px; height:100px;}
+	.mc01 .img a:before {background-size:90%;}
+	.mc02 {padding:100px 0;}
+	.mc02 .tit {font-size:40px; padding-top:20px;}
+	.mc02 .tit:before {width:40px;}
+	.mc02 .btns {margin-top:40px;}
+	.mc02 .list {gap:10px;}
+	.mc02 .list a {gap:6px; padding:15px 80px 15px 20px; font-size:18px;}
+	.mc02 .list a p {font-size:14px;}
+	.mc02 .list a:after {right:30px; width:12px;}
+/* sub */
+	.svisual {height:350px;}
+	.svisual span {font-size:35px;}
+	.svisual .inner {margin-bottom:-30px;}
+	.svisual .aside a {font-size:16px; line-height:60px;}
+	.svisual.g09,
+	.svisual.g00 {height:250px;}
+	.svisual.g09 span,
+	.svisual.g00 span {margin-top:20px;}
+
+	.container {font-size:16px; padding:80px 0; min-height:calc(100vh - 557px);}
+	.g09 + .container,
+	.g00 + .container {min-height:calc(100vh - 457px);}
+	.btit {font-size:24px; line-height:40px; margin:60px 0 20px;}
+	.btit .more {font-size:14px; line-height:40px; padding:0 15px;}
+
+	.lr_area .tit {font-size:24px;}
+/* Program Overview */
+	.overview01 .info {padding-top:40px; gap:10px;}
+	.overview01 .info:before {width:30px; height:30px; background-size:auto 60%;}
+	.overview01 .info .txt {width:60%;}
+	.overview01 .info .tit {font-size:30px; margin-bottom:20px;}
+	.overview01 .info .icons {width:calc(40% - 10px); gap:10px;}
+	.overview01 .info .icons li {width:calc(50% - 5px);}
+	.overview01 .program {gap:20px;}
+	.overview01 .program li {padding:20px; width:calc(50% - 10px);}
+	.overview01 .program b {font-size:20px; padding-bottom:12px; margin-bottom:12px;}
+	.overview01 .program .more {top:20px; right:25px;}
+	.overview02 p {bottom:40px; font-size:20px;}
+	div[class*="overview"] .slick-arrow {width:40px; height:40px; margin-top:-20px; background-size:auto 40%;}
+	.overview02 .slick-dots {bottom:20px;}
+	.overview03 {padding:60px 0 80px;}
+	.overview03 .lr_area + .lr_area {margin:60px 0;}
+	.time_table {gap:12px;}
+	.time_table li {font-size:16px; padding:10px;}
+	.time_table li.bg {padding:10px;}
+	.overview03_slide {margin:0 -10px;}
+	.overview03_slide .slick-slide {padding:0 10px;}
+	.overview03_slide .slick-prev {left:0;}
+	.overview03_slide .slick-next {right:0;}
+/* Steering Committee, Study Group */
+	ul[class*="committee"] li {padding:10px;}
+	ul[class*="committee"] .txt {padding-top:10px;}
+	ul[class*="committee"] .txt strong {font-size:18px;}
+	ul[class*="committee"] .txt p {font-size:14px; margin-top:2px;}
+	ul[class*="committee"] .txt span {font-size:14px; margin-bottom:6px;}
+	.committee01,
+	.committee03 {gap:10px;}
+	.committee01 li,
+	.committee03 li {width:calc((100% - 30px)/4);}
+	.committee01 .imgfit {height:13vw;}
+	.committee02 {gap:10px;}
+	.committee02 li {width:calc((100% - 20px)/3);}
+	.committee02 li .imgfit,
+	.committee03 li .imgfit {height:22vw;}
+	.committee03 li .txt strong {padding-bottom:6px; margin-bottom:6px;}
+/* Study Report */
+	.study_report_top {padding:50px 0; font-size:24px;}
+	.study_report_top .btns {margin-top:60px;}
+	.report01 {padding-top:20px; gap:20px;}
+	.report01 .imgfit {width:30%;}
+	.report01 .txt {width:calc(70% - 20px);}
+	.report01 .txt span {font-size:18px; line-height:28px; padding-left:20px; margin-bottom:10px;}
+	.report01 .txt .tit {font-size:28px; padding-bottom:20px; margin-bottom:15px;}
+	.report01 .txt .tt {font-size:18px; margin-bottom:4px;}
+	.report01 .txt .dots_list {padding-bottom:18px; margin-bottom:18px;}
+	.report01 .txt .btns {margin-top:20px;}
+	.policy_country {padding-bottom:20px; margin-bottom:20px; font-size:15px;}
+	.gbox .btns {margin-top:12px;}
+/* Meet Startups */
+	.search_box {height:50px; margin-bottom:40px; padding-right:60px;}
+	.search_box input {height:48px; padding:0 16px; font-size:16px;}
+	.search_box .btn {width:60px;}
+	.meet_startups {gap:20px;}
+	.meet_startups a {width:calc((100% - 40px)/3); padding:12px;}
+	.meet_startups .imgfit {height:18vw;}
+	.tag {gap:4px; padding:12px 0 4px;}
+	.tag li {font-size:12px; line-height:24px; height:24px; padding:0 4px;}
+	.meet_startups .name {font-size:18px;}
+	.meet_startups p {font-size:14px;}
+/* popup */
+	.popup .inbox {padding:20px;}
+	.popup .btn_close {width:60px; height:60px;}
+/* Meet Startups */
+	#popMeetStartups .head {gap:30px;}
+	#popMeetStartups .head .imgfit {width:250px; height:166px;}
+	#popMeetStartups .head .txt {width:calc(100% - 280px);}
+	#popMeetStartups .head .name {font-size:28px;}
+	#popMeetStartups .head .tit {font-size:18px; padding-left:10px; margin:40px 0 6px;}
+	#popMeetStartups .body {margin:28px 0; padding:20px 0; font-size:16px;}
+	#popMeetStartups .btns a {width:180px;}
+/* Meet Investors */
+	.meet_investors > * {gap:20px; padding:20px;}
+	.meet_investors .imgfit {width:180px; height:132px;}
+	.meet_investors .txt {width:calc(100% - 200px);}
+	.meet_investors .name {font-size:20px; line-height:30px; padding-bottom:10px; margin-bottom:10px;}
+	.meet_investors p {font-size:14px;}
+	.meet_investors .linkbox {gap:6px;}
+	.meet_investors .linkbox a {width:30px; height:30px; padding:0 7px;}
+	.meet_investors .linkbox a img {max-width:100%;}
+	.meet_investors .linkbox .link {gap:4px; margin-left:12px; font-size:14px; line-height:30px; width:100px;}
+
+	.meet_investors dl {font-size:14px; margin-bottom:2px;}
+	.meet_investors dt {width:100px;}
+	.meet_investors dd {width:calc(100% - 100px);}
+/* board list */
+	.board_list col.w16 {width:120px;}
+	.board_list col.w18 {width:140px;}
+	.board_list th {padding:20px 0;}
+	.board_list td {padding:20px;}
+	.board_list .announcement span {font-size:13px; line-height:24px; height:26px; padding:0 3px;}
+	.board_list .file td.tal a {padding-right:20px;}
+	.board_list .file td.tal a:after {width:16px;}
+
+	.board_top {margin-bottom:6px;}
+	.board_top .total {font-size:16px;}
+	.board_top .total strong {margin-left:4px;}
+
+	.board_bottom {margin-top:60px;}
+	.board_bottom .btn_write {font-size:14px; line-height:44px; width:120px; gap:4px;}
+	.board_bottom .btn_write:after {width:14px; height:14px;}
+	.board_bottom .paging {gap:8px;}
+	.board_bottom .paging a {width:35px; height:35px; line-height:35px; font-size:16px;}
+/* board view */
+	.board_view .tit {font-size:26px; line-height:1.4;}
+	.board_view .info {gap:12px; margin:14px 0 60px;}
+	.board_view .info li {font-size:14px; padding-left:22px;}
+	.board_view .con {font-size:16px; padding-bottom:30px;}
+	.board_view .file {padding:15px 20px;}
+	.board_view .file a {font-size:14px; padding-left:20px;}
+	.comments {margin-top:60px;}
+	.comments > .tt {font-size:20px; padding-bottom:12px;}
+	.comments .text {font-size:16px;}
+	.comments .write_box {padding:15px;}
+	.comments .write_box .textarea {height:100px;}
+	.comments .write_box .counter {bottom:10px; right:15px; font-size:13px;}
+	.comments .write_box .captcha .text {width:200px; height:67px; padding:0 16px;}
+	.comments .write_box .btn {bottom:15px; right:15px; font-size:14px;}
+	.comments .list {margin-top:30px;}
+	.comments .list .flex {gap:10px; padding:15px 0;}
+	.comments .list .txt {width:calc(100% - 50px);}
+	.comments .list .co_info {gap:14px; font-size:14px;}
+	.comments .list .co_info button {padding-left:26px; line-height:24px;}
+	.comments .list .co_info button:before {width:22px;}
+	.comments .rere_list .box {padding-left:40px;}
+	.comments .rere_list .box:before {top:15px;}
+	.btns .btn_list {width:160px; margin-top:60px;}
+/* Gallery */
+	.gall_list {gap:40px 10px;}
+	.gall_list a {width:calc((100% - 20px)/3);}
+	.gall_list .imgfit {height:21vw;}
+	.gall_list .imgfit .bg span {font-size:13px; line-height:30px;}
+	.gall_list p {margin-top:10px;}
+/* board write */
+	.board_write th,
+	.board_write td {padding:12px;}
+	.board_write th {width:200px;}
+	.board_write th p {font-size:12px;}
+	.board_write td input {height:50px; padding:0 12px;}
+	.board_write td textarea {height:200px;}
+	.board_write table + table {margin-top:30px;}
+	.board_write .terms td {padding:20px;}
+	.board_write .terms .btn_write {gap:4px; width:120px; height:40px; line-height:40px; font-size:14px;}
+	.board_write .terms .btn_write:after {width:14px; height:14px;}
+/* APT talks */
+	.apt_talks_start .tit {font-size:30px;}
+	.apt_talks_start p {font-size:16px;}
+	.apt_talks_start dl {margin:30px 0;}
+	.apt_talks_start dt {font-size:15px; margin-bottom:6px;}
+	.apt_talks_start dd input {height:50px; padding:0 12px;}
+	.apt_talks_start .captcha {padding:20px;}
+	.apt_talks_start .btns {margin-top:30px;}
+	.apt_talks_start .btns .btn {width:120px;}
+/* terms */
+	.terms_wrap {font-size:16px;}
+	.terms_wrap .stit {margin:30px 0 12px;}
+	.terms_wrap b {font-size:18px; margin:14px 0 4px;}
+	.terms_wrap ul {padding-left:15px;}
+	.terms_wrap li {padding-left:15px; text-indent:-15px;}
+/* Search */
+	.search_head {padding:30px; margin-bottom:60px;}
+	.search_head p {font-size:20px; margin-bottom:20px;}
+	.tabs {margin-bottom:60px;}
+	.tabs > * {font-size:16px; flex-direction:column;}
+	.no_search {padding:20px;}
+	.no_search .tt {font-size:25px; margin-bottom:10px;}
+	.no_search p {font-size:16px;}
+	.search_list .list a {padding:20px 60px 20px 0;}
+	.search_list .list .tt {font-size:20px; margin-bottom:6px;}
+	.search_list .list p {font-size:16px;}
+}
+
+/* ------------------------------ Mobile ------------------------------ */
+@media screen and (max-width:767px){
+	.pc_vw {display:none !important;}
+	.mo_vw {display:block !important;}
+/* header */
+	.header {height:56px;}
+	.header .logo {line-height:56px;}
+	.header .logo img {height:26px;}
+	.header .btn_menu {width:20px;}
+	.header .btn_menu p {width:20px; margin-left:-10px;}
+	.header .btn_menu .t {margin-top:-8px;}
+	.header .btn_menu .b {margin-top:6px;}
+	.header .btn_search {right:56px;}
+	.header .search_area {top:56px; padding:20px;}
+	.header .search_area .inbox {height:40px; padding-right:60px;}
+	.header .search_area input {height:38px; padding:0 15px; font-size:14px;}
+	.header .search_area .btn {width:60px;}
+	.header .sitemap {flex-direction:column; padding:56px 20px 20px;}
+	.header .sitemap .menu {gap:0; width:100%; border-left:0; border-bottom:rgba(255,255,255,.10) 1px solid;}
+	.header .sitemap .menu:first-child {border-top:rgba(255,255,255,.10) 1px solid;}
+	.header .sitemap .menu > a {position:relative; font-size:20px; padding:26px 28px 26px 0; text-align:left;}
+	.header .sitemap .menu > a:after {content:""; position:absolute; top:50%; right:0; width:28px; height:28px; margin-top:-14px; background:url('/pub/images/arrow_gnb.svg') no-repeat 50% 50% / contain; transition:.2s linear;}
+	.header .sitemap .menu.open > a:after,
+	.header .sitemap .menu.on > a:after {transform:rotate(180deg);}
+	.header .sitemap .menu.open.on > a:after {transform:rotate(0);}
+	.header .sitemap .snb {height:auto; padding:0 16px 24px; display:none;}
+	.header .sitemap .on .snb {display:block;}
+	.header .sitemap .snb a {position:relative; font-size:17px; line-height:20px; margin-bottom:16px; text-align:left; padding-left:12px;}
+	.header .sitemap .snb a.on {color:#fff;}
+	.header .sitemap .snb a:before {content:""; position:absolute; top:50%; left:0; width:4px; height:4px; background:rgba(255,255,255,.8); border-radius:50%; margin-top:-2px;}
+/* footer */
+	.country_area {padding:54px 20px;}
+	.country_area .swiper-slide {width:130px; padding:0 10px;}
+	.country_area strong {font-size:14px; line-height:22px;}
+	.country_area p {display:none;}
+	.footer {padding:24px 0 30px;}
+	.footer .flex .logo {height: 30px; margin-bottom:30px;}
+	.footer .flex .links {gap:12px; margin-top:16px;}
+	.footer .copy {font-size:12px; padding-top:8px; margin-top:24px;}
+	.gotop {bottom:20px; right:20px; width:40px; height:40px;}
+	.gotop.fixed {bottom:calc(100% - 20px);}
+	#gotop_stoper {top:calc(-100vh + 40px)}
+/* main+sub */
+	.btns {gap:7px;}
+	.btns > * {gap:6px; flex:1 1 auto; justify-content:center; font-size:13px; padding:0 20px; line-height:44px; height:44px;}
+	.btns .btn_slim {padding:0 14px; line-height:34px; height:34px;}
+/* main */
+	.mvisual .txt strong {font-size:36px;}
+	.mvisual .txt p {font-size:17px; margin-top:16px;}
+	.mvisual .scroll,
+	.mcon .btns a:before {display:none;}
+	.mc01 {padding:60px 0;}
+	.mc01 .inner {gap:100px; flex-direction:column-reverse;}
+	.mc01 .txt {width:100%;}
+	.mc01 .txt span {gap:4px; font-size:14px; margin-bottom:16px;}
+	.mc01 .txt span:before {width:16px; height:16px;}
+	.mc01 .txt strong {font-size:26px; padding-bottom:32px; margin-bottom:24px;}
+	.mc01 .txt p {font-size:17px;}
+	.mc01 .img {width:100%;}
+	.mc01 .img a {left:50%; top:auto; bottom:-47px; width:94px; height:94px; transform:translateX(-50%);}
+	.mc02 {padding:60px 0;}
+	.mc02 .inner {flex-direction:column; gap:24px;}
+	.mc02 .txt {width:100%; display:flex; justify-content:space-between;}
+	.mc02 .tit {font-size:26px; padding-top:10px;}
+	.mc02 .tit:before {width:17px;}
+	.mc02 .btns {margin-top:0;}
+	.mc02 .list {width:100%; gap:8px;}
+	.mc02 .list a {gap:8px; padding:24px 20px; font-size:18px;}
+	.mc02 .list a p {font-size:12px;}
+	.mc02 .list a:after {display:none;}
+/* sub */
+	.svisual {height:240px; margin-bottom:60px;}
+	.svisual span {font-size:20px;}
+	.svisual .inner {margin:0 0 -60px; width:100vw; max-width:100vw; padding:0;}
+	.svisual .aside_wrap {position:relative; z-index:10;}
+	.svisual .aside_wrap .btn {position:relative; font-size:15px; color:#fff; font-weight:600; line-height:60px; padding:0 20px; background:#007B5C; width:100%; text-align:left;}
+	.svisual .aside_wrap .btn:after {content:""; position:absolute; top:0; right:20px; width:28px; height:100%; background:url('/pub/images/arrow_gnb.svg') no-repeat 50% 50% / contain; transition:.2s linear;}
+	.svisual .aside {position:absolute; top:100%; left:0; width:100%; display:none;}
+	.svisual .aside a {font-size:15px; line-height:40px; width:100%; text-align:left; padding:0 20px;}
+	.svisual.g09,
+	.svisual.g00 {height:200px; margin-bottom:0;}
+
+	.container {font-size:14px; padding:60px 0; min-height:calc(100vh - 499px);}
+	.g09 + .container,
+	.g00 + .container {min-height:calc(100vh - 399px);}
+	.btit {font-size:24px; line-height:1.4; margin:80px 0 16px;}
+	.gtit {padding:20px;}
+.dtit {font-size:20px; line-height:38px; padding-left:14px; margin-bottom:16px;}
+.dtit:before {top:16px; width:6px; height:6px;}
+	.stit {font-size:20px; margin-bottom:10px;}
+	.stit .btn_back {font-size:14px; padding-left:26px;}
+
+	.lr_area {flex-direction:column; gap:16px;}
+	.lr_area .tit,
+	.lr_area .con {width:100%;}
+	.lr_area .tit {font-size:22px;}
+	.tbl th,
+	.tbl td {font-size:13px; padding:12px 5px;}
+	.tbl th {width:100px;}
+	.dots_list li:before {width:3px; height:3px;}
+	.gbox {margin-top:60px; padding:60px 0;}
+/* Program Overview */
+	.overview01 {padding-bottom:60px;}
+	.overview01 .info {padding-top:38px; gap:40px; flex-direction:column;}
+	.overview01 .info:before {width:26px; height:26px; background-size:auto 16px;}
+	.overview01 .info .txt {width:100%;}
+	.overview01 .info .tit {font-size:28px; margin-bottom:24px;}
+	.overview01 .info .icons {width:100%; justify-content:flex-start;}
+	.overview01 .info .icons li {width:calc((100% - 20px)/3);}
+	.overview01 .program {flex-direction:column; gap:8px;}
+	.overview01 .program li {width:100%; font-size:15px;}
+	.overview01 .program b {padding-bottom:14px; margin-bottom:10px;}
+	.overview01 .program .more {top:20px; right:20px; font-size:13px; line-height:32px; height:32px;}
+	.overview03 {padding:60px 0;}
+	.overview03 .lr_area + .lr_area {margin:60px 0;}
+	.time_table {gap:16px;}
+	.time_table li {font-size:14px; padding:12px;}
+	.time_table li.bg {padding:13px;}
+/* Steering Committee, Study Group */
+	ul[class*="committee"] {flex-direction:column;}
+	ul[class*="committee"] li {padding:20px;}
+	ul[class*="committee"] .txt strong {font-size:16px;}
+	ul[class*="committee"] .txt p {font-size:13px;}
+	ul[class*="committee"] .txt span {font-size:13px; margin-bottom:5px;}
+	.committee01,
+	.committee03 {gap:20px;}
+	.committee01 li,
+	.committee03 li {width:100%;}
+	.committee01 .imgfit {height:56vw;}
+	.committee01 .txt p.pb {padding-bottom:4px; margin-bottom:4px;}
+	.committee02 {gap:20px;}
+	.committee02 li {width:100%;}
+	.committee02 li .imgfit,
+	.committee03 li .imgfit {height:86vw;}
+/* Study Report */
+	.study_report_top {padding:30px 0; font-size:18px;}
+	.study_report_top .btns {margin-top:30px;}
+	.report01 {flex-direction:column; gap:40px;}
+	.report01 .imgfit,
+	.report01 .txt {width:100%;}
+	.report01 .txt span {font-size:14px; line-height:20px; padding-left:10px; margin-bottom:5px;}
+	.report01 .txt .tit {font-size:20px; padding-bottom:15px; margin-bottom:10px;}
+	.report01 .txt .tt {font-size:14px;}
+	.report01 .txt .dots_list {padding-bottom:10px; margin-bottom:10px;}
+	.report01 .txt .dots_list li:before {top:9px;}
+	.gbox .btns {margin-top:20px;}
+/* Meet Startups */
+	.search_box {height:40px;}
+	.search_box input {height:38px; padding:0 12px; font-size:14px;}
+	.meet_startups a {width:calc(50% - 10px);}
+	.meet_startups .imgfit {height:24vw;}
+	.tag {gap:2px; padding:10px 0 2px;}
+	.tag li {font-size:11px; line-height:22px; height:22px; padding:0 5px;}
+	.meet_startups .name {font-size:16px;}
+	.meet_startups p {font-size:13px; line-height:1.4;}
+/* popup */
+	.popup .inbox {padding:50px 20px;}
+	.popup .btn_close {width:50px; height:50px;}
+/* Meet Startups */
+	#popMeetStartups .head {flex-direction:column; gap:10px;}
+	#popMeetStartups .head .imgfit {width:100%; height:53vw;}
+	#popMeetStartups .head .txt {width:100%;}
+	#popMeetStartups .head .name {font-size:20px;}
+	#popMeetStartups .head .tit {font-size:14px; padding-left:10px; margin:20px 0 5px;}
+	#popMeetStartups .head .contact {gap:2px;}
+	#popMeetStartups .head .contact a {width:30px; height:30px; line-height:30px; padding:0 7px;}
+	#popMeetStartups .body {margin:15px 0; padding:15px 0; font-size:14px;}
+	#popMeetStartups .btns a {width:100%;}
+/* Meet Investors */
+	.meet_investors > * {gap:20px; padding:20px; flex-direction:column;}
+	.meet_investors .imgfit {width:100%; height:56vw;}
+	.meet_investors .txt {width:100%;}
+	.meet_investors .name {font-size:16px; line-height:24px; padding-bottom:10px; margin-bottom:10px;}
+	.meet_investors .linkbox {position:relative; top:0; margin-top:10px;}
+	.meet_investors p {font-size:13px;}
+
+	.meet_investors dl {font-size:13px;}
+	.meet_investors dt {width:90px;}
+	.meet_investors dd {width:calc(100% - 90px);}
+/* board list */
+	.board_list colgroup,
+	.board_list thead {display:none;}
+	.board_list table,
+	.board_list tbody,
+	.board_list td {display:block;}
+	.board_list tr {display:flex; flex-direction:column; border-bottom:#ebebeb 1px solid; padding:10px 0;}
+	.board_list td {border:0; padding:0; text-align:left; line-height:1; height:auto;}
+	.board_list .announcement {padding:10px;}
+	.board_list .num {font-size:0;}
+	.board_list td.tal a {font-size:16px; font-weight:600; padding:10px 0;}
+
+	.board_top .total {font-size:14px;}
+
+	.board_bottom {margin-top:40px;}
+	.board_bottom .btn_write {position:relative; font-size:13px; line-height:40px; width:120px; gap:10px; margin:0 auto 20px;}
+	.board_bottom .btn_write:after {width:12px; height:12px;}
+	.board_bottom .paging {gap:2px;}
+	.board_bottom .paging a {width:30px; height:30px; line-height:30px; font-size:13px;}
+	.board_bottom .paging .prev {margin-right:4px;}
+	.board_bottom .paging .next {margin-left:4px;}
+/* board view */
+	.board_view .tit {font-size:20px;}
+	.board_view .info {gap:10px; margin:10px 0 40px;}
+	.board_view .info li {font-size:13px;}
+	.board_view .con {font-size:14px; padding-bottom:20px;}
+	.board_view .file {padding:10px 15px;}
+	.board_view .file a {font-size:13px;}
+	.comments {margin-top:40px;}
+	.comments > .tt {font-size:16px; padding-bottom:10px;}
+	.comments .text {font-size:13px; padding:10px;}
+	.comments .write_box {padding:10px;}
+	.comments .write_box .counter {bottom:12px;}
+	.comments .write_box .captcha {flex-direction:column; align-items:flex-start;}
+	.comments .write_box .captcha .password {width:100%;}
+	.comments .write_box .captcha .text {width:100%; height:40px; padding:0 12px;}
+	.comments .write_box .btn {position:relative; bottom:0; right:0; font-size:13px; width:100%; margin-top:20px;}
+	.comments .list {margin-top:20px;}
+	.comments .list .flex {padding:10px 0;}
+	.comments .list .co_info {font-size:13px;}
+	.comments .list .co_info button:before {width:20px;}
+	.comments .rere_list .box {padding-left:30px;}
+	.comments .rere_list .box:before {top:10px; width:30px; height:30px;}
+	.btns .btn_list {flex:0 0 160px; width:160px; margin-top:40px;}
+/* Gallery */
+	.gall_list {gap:30px 10px;}
+	.gall_list a {width:calc(50% - 5px);}
+	.gall_list .imgfit {height:29vw;}
+/* board write */
+	.board_write table,
+	.board_write tbody,
+	.board_write tr,
+	.board_write th,
+	.board_write td {display:block;}
+	.board_write th {width:100%;}
+	.board_write td input {height:40px; padding:0 10px;}
+	.board_write td textarea {height:150px;}
+	.board_write table + table {margin-top:20px;}
+	.board_write .terms td {padding:10px;}
+	.board_write .terms .flex {flex-direction:column;}
+	.board_write .terms .btn_write {font-size:13px;}
+	label.check {font-size:14px; line-height:40px; padding-left:24px;}
+/* APT talks */
+	.apt_talks_start .tit {font-size:24px;}
+	.apt_talks_start p {font-size:13px;}
+	.apt_talks_start dl {margin:20px 0;}
+	.apt_talks_start dt {font-size:14px;}
+	.apt_talks_start dd input {height:40px; padding:0 10px;}
+	.apt_talks_start .captcha {padding:10px;}
+	.apt_talks_start .btns {margin-top:20px;}
+	.apt_talks_start .btns .btn {flex:0 0 auto; width:160px;}
+/* terms */
+	.terms_wrap {font-size:13px;}
+	.terms_wrap .stit {margin:20px 0 10px; line-height:1.4;}
+	.terms_wrap b {font-size:14px; margin:10px 0 5px;}
+	.terms_wrap ul {padding-left:10px;}
+	.terms_wrap li {padding-left:10px; text-indent:-10px;}
+/* Search */
+	.search_head {padding:15px; margin-bottom:30px;}
+	.search_head p {font-size:16px; margin-bottom:10px;}
+	.tabs {margin-bottom:30px; flex-wrap:wrap; border-bottom:0;}
+	.tabs > * {font-size:13px; width:25%; height:50px; border-bottom:#ebebeb 1px solid;}
+	.no_search {padding:10px;}
+	.no_search .tt {font-size:20px;}
+	.no_search p {font-size:14px;}
+	.search_list .list a {padding:10px 30px 10px 0; background-size:20px;}
+	.search_list .list .tt {font-size:16px; margin-bottom:5px;}
+	.search_list .list p {font-size:13px;}
+}

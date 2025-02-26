@@ -9,40 +9,30 @@ switch($thisPHPname){
 	case 'log_referer_view.php' : case 'log_page_view.php' :
 		$topMenuClass[9] = "on"; break;
 	case 'banner.php' : case 'banner_add.php' : case 'banner_info.php' : 
-		$topMenuClass[1] = "on"; break;
+		$topMenuClass[4] = "on"; break;
 	case 'popup_list.php' : case 'popup_info.php' : case 'popup_add.php' : 
-		$topMenuClass[1] = "on"; break;
+		$topMenuClass[4] = "on"; break;
 	case 'category.php' : case 'category_info.php' : 
 		$topMenuClass[1] = "on"; break;
 
-	case 'good.php' : case 'good_info.php' : case 'good_outlist.php' :
-		$topMenuClass[6] = "on"; break;	
-	case 'order.php' : case 'order_detail.php' : case 'order_list2.php' : 
-		$topMenuClass[7] = "on"; break;
 }
 
-if($thisPHPname=="category.php" && $_REQUEST['cat_no']=="2"){
-	$topMenuClass[4] = "on";
-	$topMenuClass[1] = ""; 
-}
 unset($thisPHPname);
 
-if($_REQUEST['boardid']){
-	switch ($_REQUEST['boardid']){
-		case 'KCAnews' : case 'KCAeducation' :	case 'KCAculture' :	case 'KCAlaw' :	case 'KCApolicy' :	case 'KCAsafety' :	case 'KCApress' :	case 'KCAfood' :	case 'KCAreport' :	case 'KCAcontents' :	case 'KCAadvice' :	case 'KCAintroduce' :	case 'KCAcompany' :	case 'KCAawards' :	
-			$topMenuClass[5] = "on"; break;
-		case 'KCIAintroduce' :	case 'KCIAanniversary' :	case 'KCIAnews' :	case 'KCIAcompany' :	
-			$topMenuClass[6] = "on"; break;		
-		case 'KIMAmedia' :	case 'KIMAcompany' :	case 'KIMApress' :	
-			$topMenuClass[7] = "on"; break;		
-		case 'KCAWDwinner' :	case 'KCAWDliterary' :	case 'KCAWDceremony' :	case 'KCAWDinterview' :	case 'KCAWDmainwinner' :	case 'KCAWDmainliterary' :	case 'KCAWDpress' :	
-			$topMenuClass[8] = "on"; break;
-		case 'qna1' :	case 'qna2' :	case 'qna3' :	case 'faq' :	
-			$topMenuClass[3] = "on"; break;	
-		case 'mailsms' :	case 'terms' :	case "often":
-			$topMenuClass[1] = "on"; break;		
-		case 'evaluation' :	case 'accept' :	case 'sub_evaluation':
-			$topMenuClass[4] = "on"; break;		
+if ($_REQUEST['boardid']) {
+	switch ($_REQUEST['boardid']) {
+		case 'meet_startups' :		case 'meet_investors' :
+			$topMenuClass[1] = "on";
+			break;
+		case 'notice' :		case 'gallery' :
+			$topMenuClass[2] = "on";
+			break;
+		case 'promotion' :		case 'apt_talks' :
+			$topMenuClass[3] = "on";
+			break;
+		case 'search' :
+            $topMenuClass[4] = "on";
+            break;
 	}
 }
 

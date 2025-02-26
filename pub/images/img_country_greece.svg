@@ -1,0 +1,22 @@
+<svg width="61" height="40" viewBox="0 0 61 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="FLAGS" clip-path="url(#clip0_91_762)">
+<rect width="60" height="40" transform="translate(0.5)"/>
+<path id="Vector" d="M60.5 35.5471H0.5V40H60.5V35.5471Z" fill="#005EAB"/>
+<path id="Vector_2" d="M60.5 31.1133H0.5V35.5661H60.5V31.1133Z" fill="white"/>
+<path id="Vector_3" d="M60.5 26.6604H0.5V31.1133H60.5V26.6604Z" fill="#005EAB"/>
+<path id="Vector_4" d="M60.5 22.2263H0.5V26.6792H60.5V22.2263Z" fill="white"/>
+<path id="Vector_5" d="M60.4812 17.7737H22.6992V22.2265H60.4812V17.7737Z" fill="#005EAB"/>
+<path id="Vector_6" d="M60.4812 13.3396H22.6992V17.7925H60.4812V13.3396Z" fill="white"/>
+<path id="Vector_7" d="M60.4812 8.88672H22.6992V13.3396H60.4812V8.88672Z" fill="#005EAB"/>
+<path id="Vector_8" d="M60.4812 4.45288H22.6992V8.90575H60.4812V4.45288Z" fill="white"/>
+<path id="Vector_9" d="M60.4812 0H22.6992V4.45287H60.4812V0Z" fill="#005EAB"/>
+<path id="Vector_10" d="M22.6991 0.019043H0.5V22.2076H22.6991V0.019043Z" fill="#005EAB"/>
+<path id="Vector_11" d="M22.6991 8.88672H0.5V13.3396H22.6991V8.88672Z" fill="white"/>
+<path id="Vector_12" d="M13.8271 22.1885L13.8271 0L9.37217 0V22.1885H13.8271Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_91_762">
+<rect width="60" height="40" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
+</svg>

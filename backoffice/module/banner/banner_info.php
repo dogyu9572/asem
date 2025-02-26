@@ -1,6 +1,6 @@
 <?PHP
 include $_SERVER['DOCUMENT_ROOT'] . "/backoffice/pub/inc/admin_top.php";
-include "./menu.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/backoffice/module/board/menu.php";
 
 include $_SERVER['DOCUMENT_ROOT'] . "/module/banner/banner.lib.php";
 if(!in_array("banner_manage",$_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["AUTH"]) && $_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["GRADE"]!="ROOT"):

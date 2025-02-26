@@ -9,6 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/backoffice/whereis.php";
 $dblink = SetConn($_conf_db["main_db"]);
 
 $arrMenuList = getAdminMenu();
+
 for($i=0;$i<$arrMenuList["total"];$i++){
 	$arrayMyMenu[] = $arrMenuList["list"][$i]['m_code'];
 	$arrayMenuList[$arrMenuList["list"][$i]['m_code']] = $arrMenuList["list"][$i]['m_name'];

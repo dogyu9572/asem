@@ -212,7 +212,6 @@ if($arrBoardInfo["total"] > 0 || $boardid=="equ_statistic"){
 			//관리자이거나 회원등급이 게시물 목록보기등급 이상일 경우
 			if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] || $_SESSION[$_SITE["DOMAIN"]]["MEMBER"]["LEVEL"] >= $arrBoardInfo["list"][0]["listlevel"]){
 				 if($arrBoardInfo["list"][0]['skin']=="gallery"){
-					 echo "<div style='width:900px'>";
 					$arrBoardList = getBoardListBaseNFile($arrBoardInfo["list"][0]["boardid"], $_GET["category"], $_GET[sw], $_GET[sk], $arrBoardInfo["list"][0]["scale"], $_GET[offset], $_GET['reply']);
 				}else if($arrBoardInfo["list"][0]['skin']=="schedule"){
 					//칼렌다 틀 가져오기 날짜설정

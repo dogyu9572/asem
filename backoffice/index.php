@@ -3,7 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/backoffice/pub/inc/admin_top.php";
 include "./menu.php";
 
 if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["GRADE"]=="ROOT"){
-	header("location: /backoffice/module/admin/admin_set.php");
+	header("location: /backoffice/module/board/board_view.php?boardid=meet_startups");
 	exit();
 }else{
 	if(in_array("admin_manage",$_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["AUTH"])){			// 
