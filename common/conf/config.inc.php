@@ -394,6 +394,11 @@ $_SITE["ARLIMTALK_USE"] = true;
 $scale = 10;
 $pagescale = 10;
 
+$arrSearchId = array(
+	"about" => "About",
+	"study_report" => "Study Report"
+);
+
 include $_SERVER['DOCUMENT_ROOT'] . "/common/lib/html.inc.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/common/lib/util.inc.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/common/lib/navigation.inc.php";

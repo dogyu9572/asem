@@ -242,45 +242,41 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 		<?else:?>
 		<input type="hidden" name="evnMode" value="write">
 		<?endif;?>
-		<input type="hidden" name="image1idxs" value="<?=$arrBoardArticle["list"][0]["image1idxs"]?>">
-		<input type="hidden" name="image2idxs" value="<?=$arrBoardArticle["list"][0]["image2idxs"]?>">
-
 		<div class="tit"><?=$arrBoardInfo["list"][0]["boardname"]?> 정보 <i>*</i></div>
 		<table>
-			<tr style="display:none;">
-				<th>순서</th>
-				<td><div class="inputs"><input type="text" class="w2" style="text-align:right;" name="b_sort" maxlength="100" value="<?=$arrBoardArticle["list"][0]['b_sort']?$arrBoardArticle["list"][0]['b_sort']:"0"?>"></div></td>
-			</tr>
-			<tr>
-				<th>제목</th>
+            <tr>
+                <th>썸네일</th>
+                <td>
+                    <div class="inputs">
+                        <?if($arrBoardArticle["list"][0]["file_l_idx"]){?>
+                            <img src="<?=$arrBoardArticle["list"][0]["file_l_url"]?>" style="padding-right:10px;max-height:200px;max-width:200px;">
+                            <label class="check"><input type="checkbox" name="filedel[]" value="<?=$arrBoardArticle["list"][0]["file_l_idx"]?>"><i></i>삭제</label>
+                            <em>file : <a href="<?=$arrBoardArticle["list"][0]["file_l_url"]?>" download="<?=$arrBoardArticle["list"][0]["file_l_name"]?>"><?=$arrBoardArticle["list"][0]["file_l_name"]?></a></em>
+                        <?}else{?>
+                            <div class="filebutton">
+                                <span>파일 선택</span>
+                                <input name="upfiles[]" type="file" class="searchfile imageFile" title="파일 찾기"><input type="hidden" name="memo_name[]" value="l">
+                            </div>
+                            <div class="filebox">선택된 파일 없음</div>
+                        <?}?>
+                    </div>
+                    <div><img src="#" onerror="this.style.display='none'" ></div>
+                </td>
+            </tr>
+            <tr>
+				<th>기업명</th>
 				<td><div class="inputs"><input type="text" class="w4" name="subject" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['subject'])?>"></div></td>
 			</tr>
+            <tr>
+                <th>국가명</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_7" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_7'])?>"></div></td>
+            </tr>
+            <tr>
+                <th>투자유치단계</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_8" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_8'])?>"></div></td>
+            </tr>
 			<tr>
-				<th>공지</th>
-				<td><div class="inputs">
-					<label class="radio"><input type="radio" name="is_notice" value="" <?if($arrBoardArticle["list"][0]['no']!="0"){echo " checked";}?>><i></i>일반</label>
-					<label class="radio"><input type="radio" name="is_notice" value="Y" <?if($arrBoardArticle["list"][0]['no']=="0"){echo " checked";}?>><i></i>공지</label> 
-					<em></em>
-				</div></td>
-			</tr>
-			<tr style="display:none;">
-				<th>메인 노출 여부</th>
-				<td><div class="inputs">
-					<label class="radio"><input type="radio" name="etc_1" value="Y" <?=$arrBoardArticle["list"][0]['etc_1']!="N"?"checked":""?>><i></i>Y</label>
-					<label class="radio"><input type="radio" name="etc_1" value="N" <?=$arrBoardArticle["list"][0]['etc_1']=="N"?"checked":""?>><i></i>N</label> 
-					<em></em>
-				</div></td>
-			</tr>
-			<tr style="display:none;">
-				<th>사용여부</th>
-				<td><div class="inputs">
-					<label class="radio"><input type="radio" name="etc_2" value="Y" <?=$arrBoardArticle["list"][0]['etc_2']!="N"?"checked":""?>><i></i>Y</label>
-					<label class="radio"><input type="radio" name="etc_2" value="N" <?=$arrBoardArticle["list"][0]['etc_2']=="N"?"checked":""?>><i></i>N</label> 
-					<em></em>
-				</div></td>
-			</tr>
-			<tr>
-				<th>내용</th>
+				<th>개요</th>
 				<td>
 					<textarea id="contents" name="contents"><?=stripslashes($arrBoardArticle["list"][0]['contents'])?></textarea>
 					<?
@@ -288,31 +284,35 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 					include $_SERVER['DOCUMENT_ROOT'] . "/ckeditor/Editor.php";
 					?>
 				</td>
-			</tr>		
-			
+			</tr>
+            <tr>
+                <th>이메일</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_1" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_1'])?>"></div></td>
+            </tr>
+            <tr>
+                <th>홈페이지</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_2" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_2'])?>"></div></td>
+            </tr>
+            <tr>
+                <th>인스타그램</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_3" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_3'])?>"></div></td>
+            </tr>
+            <tr>
+                <th>LinkedIn</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_4" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_4'])?>"></div></td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_5" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_5'])?>"></div></td>
+            </tr>
+            <tr>
+                <th>LinkTree</th>
+                <td><div class="inputs"><input type="text" class="w4" name="etc_6" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['etc_7'])?>"></div></td>
+            </tr>
 			<tr>
 				<th>날짜</th>
 				<td><input type="text" class="w2 datepicker" name="schedule_date" value="<?=$arrBoardArticle["list"][0]['schedule_date']??date("Y-m-d")?>" maxlength="10" /></td>
 			</tr>
-			<tr style="display:none;">
-				<th>썸네일</th>
-				<td>
-					<div class="inputs">
-					<?if($arrBoardArticle["list"][0]["file_l_idx"]){?>
-					<img src="<?=$arrBoardArticle["list"][0]["file_l_url"]?>" style="padding-right:10px;max-height:200px;max-width:200px;">
-					<label class="check"><input type="checkbox" name="filedel[]" value="<?=$arrBoardArticle["list"][0]["file_l_idx"]?>"><i></i>삭제</label>
-					<em>file : <a href="<?=$arrBoardArticle["list"][0]["file_l_url"]?>" download="<?=$arrBoardArticle["list"][0]["file_l_name"]?>"><?=$arrBoardArticle["list"][0]["file_l_name"]?></a></em>
-					<?}else{?>
-						<div class="filebutton">
-							<span>파일 선택</span>							
-							<input name="upfiles[]" type="file" class="searchfile imageFile" title="파일 찾기"><input type="hidden" name="memo_name[]" value="l">							
-						</div>
-						<div class="filebox">선택된 파일 없음</div>
-					<?}?>
-					</div>
-					<div><img src="#" onerror="this.style.display='none'" ></div>
-				</td>
-			</tr>			
 			<tr>
 				<th>작성자</th>
 				<td><div class="inputs"><input type="text" class="w2" name="name" maxlength="100" value="<?if($_REQUEST['mode']=="modify"):?><?=$arrBoardArticle["list"][0]['name']?><?else:?><?=$_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"]?$_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["NAME"]:$_SESSION[$_SITE["DOMAIN"]]["MEMBER"]["NAME"]?><?endif;?>"></div></td>
@@ -321,7 +321,7 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 				<th>조회수</th>
 				<td><div class="inputs"><input type="text" class="w2" name="hit" maxlength="100" value="<?=$arrBoardArticle["list"][0]['hit']??0?>"></div></td>
 			</tr>
-			<tr>
+            <tr style="display:none;">
 				<th>첨부파일 <em>&nbsp;&nbsp;&nbsp;<a href="javascript:appendfile();"><img src="/common/images/btnPlus3.png" alt="파일추가" style="width:20px;"></a>
 				<a href="javascript:removefile();"><img src="/common/images/btnMin3.png" alt="파일삭제" style="width:20px;"></a></em></th>
 				<td>
@@ -335,10 +335,7 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 											<input name="upfiles[]" type="file" class="searchfile" title="파일 찾기">					
 										</div>
 										<div class="filebox">선택된 파일 없음</div>
-										
-										
 									</div>
-									
 								</td>
 							</tr>
 							<?for($i=1;$i<21;$i++){?>
@@ -377,7 +374,27 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 					</table>
 					<?}?>
 				</td>
-			</tr>			
+			</tr>
+            <tr style="display:none;">
+                <th>순서</th>
+                <td><div class="inputs"><input type="text" class="w2" style="text-align:right;" name="b_sort" maxlength="100" value="<?=$arrBoardArticle["list"][0]['b_sort']?$arrBoardArticle["list"][0]['b_sort']:"0"?>"></div></td>
+            </tr>
+            <!--<tr style="display:none;">
+                <th>메인 노출 여부</th>
+                <td><div class="inputs">
+                        <label class="radio"><input type="radio" name="etc_1" value="Y" <?php /*=$arrBoardArticle["list"][0]['etc_1']!="N"?"checked":""*/?>><i></i>Y</label>
+                        <label class="radio"><input type="radio" name="etc_1" value="N" <?php /*=$arrBoardArticle["list"][0]['etc_1']=="N"?"checked":""*/?>><i></i>N</label>
+                        <em></em>
+                    </div></td>
+            </tr>
+            <tr style="display:none;">
+                <th>사용여부</th>
+                <td><div class="inputs">
+                        <label class="radio"><input type="radio" name="etc_2" value="Y" <?php /*=$arrBoardArticle["list"][0]['etc_2']!="N"?"checked":""*/?>><i></i>Y</label>
+                        <label class="radio"><input type="radio" name="etc_2" value="N" <?php /*=$arrBoardArticle["list"][0]['etc_2']=="N"?"checked":""*/?>><i></i>N</label>
+                        <em></em>
+                    </div></td>
+            </tr>-->
 		</table>		
 
 		<div class="btns">

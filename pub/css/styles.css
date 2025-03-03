@@ -288,17 +288,17 @@ ul[class*="committee"] .txt span {display:inline-block; vertical-align:top; font
 .popup .inbox {position:absolute; top:50%; left:50%; width:800px; max-width:calc(100% - 40px); background:#fff; padding:40px; transform:translate(-50%,-50%);}
 .popup .btn_close {position:absolute; top:0; right:0; width:80px; height:80px; background:url('/pub/images/btn_close.svg') no-repeat 50% 50%; font-size:0;}
 /* Meet Startups */
-#popMeetStartups .head {display:flex; gap:32px;}
-#popMeetStartups .head .imgfit {width:320px; height:213px; border:#ebebeb 2px solid;}
-#popMeetStartups .head .txt {width:calc(100% - 352px);}
-#popMeetStartups .head .tag {margin-top:0;}
-#popMeetStartups .head .name {font-size:32px; font-weight:600;}
-#popMeetStartups .head .tit {position:relative; font-size:20px; font-weight:500; padding-left:12px; margin:44px 0 8px;}
-#popMeetStartups .head .tit:before {content:""; position:absolute; top:50%; left:0; width:4px; height:4px; background:#007B5C; border-radius:50%;}
-#popMeetStartups .head .contact {display:flex; gap:8px;}
-#popMeetStartups .head .contact a {width:40px; height:40px; line-height:40px; text-align:center; background:#F7F8F9; border-radius:50%; font-size:0;}
-#popMeetStartups .body {margin:32px 0; padding:24px 0; font-size:18px; color:#777; border-top:#ebebeb 1px solid; border-bottom:#ebebeb 1px solid;}
-#popMeetStartups .btns a {width:200px; justify-content:center;}
+[id^="popMeetStartups"] .head {display:flex; gap:32px;}
+[id^="popMeetStartups"] .head .imgfit {width:320px; height:213px; border:#ebebeb 2px solid;}
+[id^="popMeetStartups"] .head .txt {width:calc(100% - 352px);}
+[id^="popMeetStartups"] .head .tag {margin-top:0;}
+[id^="popMeetStartups"] .head .name {font-size:32px; font-weight:600;}
+[id^="popMeetStartups"] .head .tit {position:relative; font-size:20px; font-weight:500; padding-left:12px; margin:44px 0 8px;}
+[id^="popMeetStartups"] .head .tit:before {content:""; position:absolute; top:50%; left:0; width:4px; height:4px; background:#007B5C; border-radius:50%;}
+[id^="popMeetStartups"] .head .contact {display:flex; gap:8px;}
+[id^="popMeetStartups"] .head .contact a {width:40px; height:40px; line-height:40px; text-align:center; background:#F7F8F9; border-radius:50%; font-size:0;}
+[id^="popMeetStartups"] .body {margin:32px 0; padding:24px 0; font-size:18px; color:#777; border-top:#ebebeb 1px solid; border-bottom:#ebebeb 1px solid;}
+[id^="popMeetStartups"] .btns a {width:200px; justify-content:center;}
 
 /* Meet Investors + Steering Committee*/
 .meet_investors {display:flex; flex-direction:column; gap:24px;}

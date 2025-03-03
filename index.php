@@ -57,6 +57,10 @@
 
 <ul class="country_area">
 	<div class="swiper-wrapper">
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_singapore.svg" alt="image"></i><strong>Singapore</strong><p>Country Overview </p></div>
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_republic_of_korea.svg" alt="image"></i><strong>Korea</strong><p>Country Overview </p></div>
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_china.svg" alt="image"></i><strong>China</strong><p>Country Overview </p></div>
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_japan.svg" alt="image"></i><strong>japan</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_brunei.svg" alt="image"></i><strong>Brunei Darussalam</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_cambodia.svg" alt="image"></i><strong>Cambodia</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_indonesia.svg" alt="image"></i><strong>Indonesia</strong><p>Country Overview </p></div>
@@ -67,6 +71,10 @@
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_thailand.svg" alt="image"></i><strong>Thailand</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_vietnam.svg" alt="image"></i><strong>Viet nam</strong><p>Country Overview </p></div>
 		<!-- 슬라이드를 위한 복분 -->
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_singapore.svg" alt="image"></i><strong>Singapore</strong><p>Country Overview </p></div>
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_republic_of_korea.svg" alt="image"></i><strong>Korea</strong><p>Country Overview </p></div>
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_china.svg" alt="image"></i><strong>China</strong><p>Country Overview </p></div>
+		<div class="swiper-slide"><i><img src="/pub/images/img_country_japan.svg" alt="image"></i><strong>japan</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_brunei.svg" alt="image"></i><strong>Brunei Darussalam</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_cambodia.svg" alt="image"></i><strong>Cambodia</strong><p>Country Overview </p></div>
 		<div class="swiper-slide"><i><img src="/pub/images/img_country_indonesia.svg" alt="image"></i><strong>Indonesia</strong><p>Country Overview </p></div>

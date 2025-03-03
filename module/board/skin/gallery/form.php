@@ -247,6 +247,25 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 
 		<div class="tit"><?=$arrBoardInfo["list"][0]["boardname"]?> 정보 <i>*</i></div>
 		<table>
+            <tr>
+                <th>썸네일</th>
+                <td>
+                    <div class="inputs">
+                        <?if($arrBoardArticle["list"][0]["file_l_idx"]){?>
+                            <img src="<?=$arrBoardArticle["list"][0]["file_l_url"]?>" style="padding-right:10px;max-height:200px;max-width:200px;">
+                            <label class="check"><input type="checkbox" name="filedel[]" value="<?=$arrBoardArticle["list"][0]["file_l_idx"]?>"><i></i>삭제</label>
+                            <em>file : <a href="<?=$arrBoardArticle["list"][0]["file_l_url"]?>" download="<?=$arrBoardArticle["list"][0]["file_l_name"]?>"><?=$arrBoardArticle["list"][0]["file_l_name"]?></a></em>
+                        <?}else{?>
+                            <div class="filebutton">
+                                <span>파일 선택</span>
+                                <input name="upfiles[]" type="file" class="searchfile imageFile" title="파일 찾기"><input type="hidden" name="memo_name[]" value="l">
+                            </div>
+                            <div class="filebox">선택된 파일 없음</div>
+                        <?}?>
+                    </div>
+                    <div><img src="#" onerror="this.style.display='none'" ></div>
+                </td>
+            </tr>
 			<tr style="display:none;">
 				<th>순서</th>
 				<td><div class="inputs"><input type="text" class="w2" style="text-align:right;" name="b_sort" maxlength="100" value="<?=$arrBoardArticle["list"][0]['b_sort']?$arrBoardArticle["list"][0]['b_sort']:"0"?>"></div></td>
@@ -255,7 +274,7 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 				<th>제목</th>
 				<td><div class="inputs"><input type="text" class="w4" name="subject" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['subject'])?>"></div></td>
 			</tr>
-			<tr>
+            <tr style="display:none;">
 				<th>공지</th>
 				<td><div class="inputs">
 					<label class="radio"><input type="radio" name="is_notice" value="" <?if($arrBoardArticle["list"][0]['no']!="0"){echo " checked";}?>><i></i>일반</label>

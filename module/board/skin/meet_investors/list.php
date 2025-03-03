@@ -417,118 +417,58 @@ $(document).ready(function(){
 		$offset = (int)$_GET["offset"];
 	}
 ?>
-<div class="inner">
-	<h3 class="heading3">공지사항</h3>
-	<form name="form1" method="get" action="<?=$_SERVER["PHP_SELF"]?>">
-		<input type="hidden" name="boardid" value="<?=$arrBoardInfo["list"][0]["boardid"]?>">
-		<div class="sorting-wrap">
-			<p class="total">총 <b class="c-primaryDark"><?=$arrBoardList["total"]?></b>건</p>		
-			<div class="search-wrap">
-				<select name="sw">
-					<option value="s">제목</option>
-					<option value="c">내용</option>
-				</select>
-				<div class="search">
-					<input type="text" name="sk" value="<?=$_GET['sk']?>" maxlength="20" placeholder="검색어를 입력하세요.">
-					<button type="button" onclick="document.form1.submit()"></button>
-				</div>
-			</div>		
-		</div>
-	</form>
-	<div class="board-list data">
-		<div class="head">
-			<div class="row">
-				<div class="col sm">NO</div>
-				<div class="col full">제목</div>
-				<div class="col rg">첨부파일</div>
-				<div class="col lg">등록일</div>
-			</div>
-		</div>
-		<div class="body">
-		<?
-		if($arrBoardList["list"]["total"] > 0){
-			for($i=0; $i < $arrBoardList["list"]["total"]; $i++){				
-				//글잠금 표시
-				if($arrBoardList["list"][$i]['uselock'] == "Y"){
-					$lockImage ="";	// 글잠금표시
-				}else{
-					$lockImage ="";
-				}				
-				//순번 & 공지 & 신규표시
-				$listNum = $arrBoardList["total"]-$i-$offset;					
-				//신규글 표시
-				if(strtotime($arrBoardList["list"][$i]['wdate'])+($arrBoardInfo["list"][0]["newmark"]*86400) > mktime()){
-					$categoryTitle ='class="new"';	// new 이미지				
-				}
-				$noticeTxt = "";
-				//공지
-				if($arrBoardList["list"][$i]['no']=="0"){
-					$listNum = '<span class="chip-inform">공지</span>';
-					$noticeTxt = '<span class="chip-inform">공지</span>';
-				}					
-				//파일
-				$imgsrc[$i] = "/uploaded/board/".$arrBoardInfo["list"][0]["boardid"]."/".$arrBoardList["list"][$i]['re_name'];
-				if(!$arrBoardList["list"][$i]['re_name']){$imgsrc[$i] = "/GATE/pub/images/img_story00.png";}
-				############################ 파일 확인 #############################
-				$arrBoardArticle = getBoardArticleView($arrBoardInfo["list"][0]["boardid"], "", $arrBoardList["list"][$i]['idx'],"list");
-				for($j=0;$j<$arrBoardArticle["total_files"];$j++){
-					if(substr($arrBoardArticle["files"][$j]['re_name'],0,2) != "l_"){
-						$fileImg[$i] = '첨부파일';
-					}
-				}
-
-				if($arrBoardList["list"][$i]['etc_1']=="Y"){
-					$arrBoardList["list"][$i]['etc_txt'] = '<i class="end">답변완료</i>';
-				}else{
-					$arrBoardList["list"][$i]['etc_txt'] = '<i class="ing">문의</i>';					
-				}
-				$arrBoardList["list"][$i]['re_name'] = mb_substr($arrBoardList["list"][$i]['name'],0,1)."*".mb_substr($arrBoardList["list"][$i]['name'],-1);
-				$arrBoardList["list"][$i]['re_hp'] = mb_substr($arrBoardList["list"][$i]['homepage'],0,1)."*".mb_substr($arrBoardList["list"][$i]['homepage'],-1);
-		?>	
-			<div class="row">
-				<div class="col sm show-pc">
-					<?=$listNum?>
-				</div>
-				<div class="col full">
-					<a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=view&idx=<?=$arrBoardList["list"][$i]['idx']?>&sk=<?=$_GET['sk']?>&sw=<?=$_GET['sw']?>&offset=<?=$_GET['offset']?>&category=<?=$_GET['category']?>">
-					<?=$noticeTxt?>
-					<?=text_cut($arrBoardList["list"][$i]['subject'],70)?></a>
-				</div>
-				<div class="col rg show-pc">
-				<?if($fileImg[$i]=="첨부파일"){?><i class="file"></i><?}?>
-				</div>
-				<div class="col lg"><?=str_replace("-",".",substr($arrBoardList["list"][$i]['schedule_date'],0,10))?></div>
-				<?if($fileImg[$i]=="첨부파일"){?>
-				<div class="col rg line show-mo">
-					<i class="file"></i>
-				</div>
-				<?}?>
-			</div>
-		<?
-			}
-		}else{
-			echo "<a href='javascript:void(0);' class='no_data'>등록된 데이터가 없습니다.</a>";
-		}
-		?>
-		</div>
-	</div>
-	<div class="paging">
-		<?
-		############### paging ############### ST
-		$queryString = explode("&",$_SERVER['QUERY_STRING']);
-		$reQueryString = "";
-		$comma = "";
-		for($i=0;$i<count($queryString);$i++){
-			if(strpos($queryString[$i],"offset=")===false){
-				$reQueryString .= $comma.$queryString[$i];
-				$comma = "&";
-			}
-		}
-		echo pageNavigationUser($arrBoardList["total"],$arrBoardInfo["list"][0]["scale"],$arrBoardInfo["list"][0]["pagescale"],$_GET['offset'],$reQueryString);
-		############### paging ############### ED
-		?>	
-	</div>
-</div>
+    <div class="inner">
+        <div class="meet_investors">
+        <?
+        if($arrBoardList["list"]["total"] > 0){
+            for($i=0; $i < $arrBoardList["list"]["total"]; $i++){
+                //파일
+                $imgsrc[$i] = "/uploaded/board/".$arrBoardInfo["list"][0]["boardid"]."/".$arrBoardList["list"][$i]['re_name'];
+                if(!$arrBoardList["list"][$i]['re_name']){
+                    $imgsrc[$i] = "/pub/images/img_gall_list_sample.png";
+                }
+                ############################ 파일 확인 #############################
+                $arrBoardArticle = getBoardArticleView($arrBoardInfo["list"][0]["boardid"], "", $arrBoardList["list"][$i]['idx'],"list");
+                for($j=0;$j<$arrBoardArticle["total_files"];$j++){
+                    if(substr($arrBoardArticle["files"][$j]['re_name'],0,2) != "l_"){
+                        $fileImg[$i] = '첨부파일';
+                    }
+                }
+            ?>
+            <div class="box">
+                <div class="imgfit"><img src="<?=$imgsrc[$i]?>" alt="image"></div>
+                <div class="txt">
+                    <div class="name"><?=$arrBoardList["list"][$i]['subject']?>
+                        <div class="linkbox">
+                            <?php if($arrBoardList["list"][$i]['etc_1']): ?>
+                                <a href="<?=$arrBoardList["list"][$i]['etc_1']?>"><img src="/pub/images/icon_contact01.svg" alt="이메일"></a>
+                            <?php endif; ?>
+                            <?php if($arrBoardList["list"][$i]['etc_3']): ?>
+                                <a href="<?=$arrBoardList["list"][$i]['etc_3']?>"><img src="/pub/images/icon_contact06.svg" alt="페이스북"></a>
+                            <?php endif; ?>
+                            <?php if($arrBoardList["list"][$i]['etc_4']): ?>
+                                <a href="<?=$arrBoardList["list"][$i]['etc_4']?>"><img src="/pub/images/icon_contact02.svg" alt="인스타그램"></a>
+                            <?php endif; ?>
+                            <?php if($arrBoardList["list"][$i]['etc_5']): ?>
+                                <a href="<?=$arrBoardList["list"][$i]['etc_5']?>"><img src="/pub/images/icon_contact05.svg" alt="in"></a>
+                            <?php endif; ?>
+                            <?php if($arrBoardList["list"][$i]['etc_6']): ?>
+                                <a href="<?=$arrBoardList["list"][$i]['etc_6']?>"><img src="/pub/images/icon_contact07.svg" alt="x"></a>
+                            <?php endif; ?>
+                            <?php if($arrBoardList["list"][$i]['etc_2']): ?>
+                                <a href="<?=$arrBoardList["list"][$i]['etc_2']?>" target="_blank" class="link">WEBSITE</a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <p>Proficeo Ventures is the specialist Venture Builders for High Growth Startups & Scaleups, focusing on entrepreneur development and startup accelerations.</p>
+                </div>
+            </div>
+        <?php
+            }
+        }
+        ?>
+        </div>
+    </div>
 <?
 }
 ?>

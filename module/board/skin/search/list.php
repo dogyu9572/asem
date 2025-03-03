@@ -250,7 +250,7 @@ function fnOrderby(rdnm, rdsc){
 				</div>
 				<div class="btns">
 					<a href="javascript:void(0);" onclick="getSelections()" class="btn btn_del">선택삭제</a>
-					<a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=write&category=<?=$_GET['category']?>" class="btn">신규등록</a>
+					<a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=write&category=<?=$_GET['category']?>" class="btn">HTML 등록</a>
 				</div>
 			</div>
 		</div>
@@ -263,6 +263,7 @@ function fnOrderby(rdnm, rdsc){
 					<colgroup class="pc_vw">
 						<col class="check">
 						<col class="w4p">
+                        <col class="w10p">
 						<col class="*">
 						<col class="w6p">
 						<col class="w6p">
@@ -274,7 +275,8 @@ function fnOrderby(rdnm, rdsc){
 						<tr>	
 							<th><label class="check notxt"><input type="checkbox" name="" id="allCheck"><i></i></label></th>
 							<th class="pc_vw">No.</th>
-							<th class="pc_vw">제목</th>
+							<th class="pc_vw">메뉴구분</th>
+                            <th class="pc_vw">제목</th>
 							<th class="pc_vw">작성자</th>
 							<th class="pc_vw">조회수</th>
 							<th class="pc_vw">날짜</th>
@@ -326,7 +328,8 @@ function fnOrderby(rdnm, rdsc){
 					?>
 						<tr data-order="<?=$arrBoardList['list'][$i]['idx']?>">
 							<td style="width:5%;"><label class="check notxt"><input type="checkbox" value="<?=$arrBoardList["list"][$i]['idx']?>" name="chk_list"><i></i></label></td>
-							<td style="width:5%;"><?=$arrBoardList["list"][$i]['no']=="0"?"공지":$categoryTitle?></td>	
+							<td style="width:5%;"><?=$arrBoardList["list"][$i]['no']=="0"?"공지":$categoryTitle?></td>
+                            <td style="width:5%;"><?=$arrSearchId[$arrBoardList["list"][$i]['search_id']]?></td>
 							<td style="width:40%;"><a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=modify&idx=<?=$arrBoardList["list"][$i]['idx']?>&category=<?=$_GET['category']?>" class="linktxt"><?=$arrBoardList["list"][$i]['subject']?></a></td>
 							<td style="width:5%;"><?=$arrBoardList["list"][$i]['name']?></td>
 							<td style="width:5%;"><?=$arrBoardList["list"][$i]['hit']?></td>

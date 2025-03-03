@@ -53,7 +53,7 @@
 							<div class="co_info">
 								<div class="date">2025.01.01</div>
 								<button class="btn_re">Reply</button>
-								<button class="btn_del">Delete</button>
+								<button class="btn_del" onclick="openPop('popDelete')">Delete</button>
 							</div>
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 									<div class="tt">The space where the content will be located.</div>
 									<div class="co_info">
 										<div class="date">2025.01.01</div>
-										<button class="btn_del">Delete</button>
+										<button class="btn_del" onclick="openPop('popDelete')">Delete</button>
 									</div>
 								</div>
 							</div>
@@ -77,7 +77,7 @@
 									<div class="tt">The space where the content will be located.</div>
 									<div class="co_info">
 										<div class="date">2025.01.01</div>
-										<button class="btn_del">Delete</button>
+										<button class="btn_del" onclick="openPop('popDelete')">Delete</button>
 									</div>
 								</div>
 							</div>
@@ -104,7 +104,7 @@
 							<div class="co_info">
 								<div class="date">2025.01.01</div>
 								<button class="btn_re">Reply</button>
-								<button class="btn_del">Delete</button>
+								<button class="btn_del" onclick="openPop('popDelete')">Delete</button>
 							</div>
 						</div>
 					</div>
@@ -131,7 +131,7 @@
 							<div class="co_info">
 								<div class="date">2025.01.01</div>
 								<button class="btn_re">Reply</button>
-								<button class="btn_del">Delete</button>
+								<button class="btn_del" onclick="openPop('popDelete')">Delete</button>
 							</div>
 						</div>
 					</div>
@@ -161,7 +161,29 @@
 
 </div> <!-- //container -->
 
+<div class="popup" id="popDelete">
+	<div class="dm" onclick="closePop('popDelete')"></div>
+	<div class="inbox">
+		<button type="button" class="btn_close" onclick="closePop('popDelete')">닫기</button>
+		<div class="apt_talks_start">
+			<div class="tit">Delete Comment</div>
+			<p>You must enter a password to delete this comment.</p>
+			<dl>
+				<dt>Password</dt>
+				<dd><input type="text" class="text" placeholder="Password"></dd>
+			</dl>
+			<div class="captcha">
+				<img src="/pub/images/img_captcha.png" alt="임시 캡챠 이미지">
+			</div>
+			<div class="btns">
+				<button type="button" class="btn">VERIFY</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
+//<![CDATA[
 $(function() {
 	$('.content').keyup(function (){
         var content = $(this).val();
@@ -183,6 +205,13 @@ $(function() {
 	});
 
 });
+function openPop(id) {
+    $(`#${id}`).fadeIn("fast");
+}
+function closePop(id) {
+    $(`#${id}`).fadeOut("fast");
+}
+//]]>
 </script>
 
 <?php include("../pub/inc/_footer.php") ?>

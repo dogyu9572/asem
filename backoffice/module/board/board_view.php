@@ -184,6 +184,29 @@ if($arrBoardInfo["total"] > 0 || $boardid=="equ_statistic"){
 				jsHistory("-1");
 			}
 			break;
+		case("comment"):
+			//댓글 사용시
+				//관리자이거나 회원등급이 게시물 댓글등록등급 이상일 경우
+				if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] || $_SESSION[$_SITE["DOMAIN"]]["MEMBER"]["LEVEL"] >= $arrBoardInfo["list"][0]["replylevel"]){
+					$arrBoardList = getCommentList($arrBoardInfo["list"][0]["boardid"], $_GET['idx'], $scale, $_GET['offset2'], "admin");
+					//댓글등록
+					if($arrBoardList["total"] > 0){
+						//글잠금이 아니거나, 인증을 했거나, 관리자일 경우 글 보여줌
+						if($arrBoardList["list"][0]['uselock']!="Y" || $_SESSION[$_SITE["DOMAIN"]][$boardid."|".$_GET["idx"]]==TRUE || $_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"]){
+							include($_SITE["BOARD_SKIN"].$arrBoardInfo["list"][0]['skin']."/comment.php");
+						}else{
+							$_REQUEST[mode]="unlock";
+							include($_SITE["BOARD_SKIN"].$arrBoardInfo["list"][0]['skin']."/pass.php");
+						}
+					}else{
+						jsMsg("댓글이 없는 게시글입니다.");
+						jsHistory("-1");
+					}
+				}else{
+					jsMsg($arrLevelInfo[$arrBoardInfo["list"][0]["replylevel"]] . " 이상 댓글등록이 가능 합니다.");
+					jsHistory("-1");
+				}
+			break;
 
 		case("delete"):
 			//관리자이거나 회원등급이 게시물 등록등급 이상일 경우

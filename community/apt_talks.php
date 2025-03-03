@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="btns">
-				<button class="btn" onclick="location.href='/community/apt_talks_list.php'">VERIFY</button>
+				<button type="button" class="btn" onclick="location.href='/community/apt_talks_list.php'">VERIFY</button>
 			</div>
 		</div>
 	</div>

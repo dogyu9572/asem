@@ -4,19 +4,35 @@
 <?php include("../pub/inc/_aside.php") ?>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/module/board/board.lib.php";
+
 $dblink = SetConn($_conf_db["main_db"]);
 
-$arrNoticeList = getBoardListBaseNFile("notice", "", "all", $_GET['sk'], "", 0,'', "user"); // 전체 교육 리스트 가져오기
-$arrGalleryList = getBoardListBaseNFile("gallery", "", "all", $_GET['sk'], "", 0,'', "user"); // 전체 교육 리스트 가져오기
+$arrAboutList = getBoardListBaseNFile("search", "", "all", $_GET['sk'], "", 0,' and search_id = "about"', "user"); // about 리스트 가져오기
+$arrStudyList = getBoardListBaseNFile("search", "", "all", $_GET['sk'], "", 0,' and search_id = "study_report"', "user"); // Study 리스트 가져오기
+$arrStartupsList = getBoardListBaseNFile("meet_startups", "", "all", $_GET['sk'], "", 0,'', "user"); // Startups 리스트 가져오기
+$arrNoticeList = getBoardListBaseNFile("notice", "", "all", $_GET['sk'], "", 0,'', "user"); // Notice 리스트 가져오기
+$arrGalleryList = getBoardListBaseNFile("gallery", "", "all", $_GET['sk'], "", 0,'', "user"); // Gallery 리스트 가져오기
+$arrPromotionList = getBoardListBaseNFile("promotion", "", "all", $_GET['sk'], "", 0,'', "user"); // Promotion 리스트 가져오기
+$arrAptTalksList = getBoardListBaseNFile("apt_talks", "", "all", $_GET['sk'], "", 0,'', "user"); // Apt Talks 리스트 가져오기
+
+// 전체 토탈 계산
+$total_count = 0;
+$total_count += ($arrAboutList["list"]["total"] ?? 0);
+$total_count += ($arrStudyList["list"]["total"] ?? 0);
+$total_count += ($arrStartupsList["list"]["total"] ?? 0);
+$total_count += ($arrNoticeList["list"]["total"] ?? 0);
+$total_count += ($arrGalleryList["list"]["total"] ?? 0);
+$total_count += ($arrPromotionList["list"]["total"] ?? 0);
+$total_count += ($arrAptTalksList["list"]["total"] ?? 0);
 
 //DB해제
-SetDisConn($dblink);
+//SetDisConn($dblink);
 ?>
 <div id="mainContent" class="container g<?=$gNum?> s<?=$sNum?> search_wrap">
 
 	<div class="inner">
 		<div class="search_head">
-			<p>Search results for <strong>‘<?=$_GET["sk"]?>’</strong><br>A total of <strong>0</strong> results were found.</p>
+			<p>Search results for <strong>‘<?=$_GET["sk"]?>’</strong><br>A total of <strong><?=$total_count?></strong> results were found.</p>
 			<div class="search_box">
                 <form name="form1" method="get" action="<?=$_SERVER[PHP_SELF]?>">
                     <input type="hidden" name="boardid" value="<?=$_GET["boardid"]?>">
@@ -27,60 +43,115 @@ SetDisConn($dblink);
 		</div>
 
         <div class="tabs">
-            <a href="/search/index.php?sk=<?=$_GET["sk"]?>" class="<?=empty($_GET['boardid']) ? 'on' : ''?>">All (0)</a>
-            <a href="/search/index.php?boardid=about&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='about') ? 'on' : ''?>">About<span>(6)</span></a>
-            <a href="/search/index.php?boardid=study&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='study') ? 'on' : ''?>">Study Report<span>(1)</span></a>
-            <a href="/search/index.php?boardid=startups&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='startups') ? 'on' : ''?>">Meet Startups</a>
-            <a href="/search/index.php?boardid=notice&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='notice') ? 'on' : ''?>">Notice(<?=$arrNoticeList["list"]["total"] ?? 0?>)</a>
-            <a href="/search/index.php?boardid=gallery&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='gallery') ? 'on' : ''?>">Gallery(<?=$arrGalleryList["list"]["total"] ?? 0?>)</a>
-            <a href="/search/index.php?boardid=promotion&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='promotion') ? 'on' : ''?>">Promotion</a>
-            <a href="/search/index.php?boardid=apt&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='apt') ? 'on' : ''?>">APT talks</a>
+            <a href="/search/index.php?sk=<?=$_GET["sk"]?>" class="<?=empty($_GET['boardid']) ? 'on' : ''?>">All (<?=$total_count?>)</a>
+            <a href="/search/index.php?boardid=search&search_id=about&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='search' && $_GET['search_id'] == 'about') ? 'on' : ''?>">About<span>(<?=$arrAboutList["list"]["total"] ?? 0?>)</span></a>
+            <a href="/search/index.php?boardid=search&search_id=study_report&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='search' && $_GET['search_id'] == 'study_report' ) ? 'on' : ''?>">Study Report<span>(<?=$arrStudyList["list"]["total"] ?? 0?>)</span></a>
+            <a href="/search/index.php?boardid=meet_startups&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='meet_startups') ? 'on' : ''?>">Meet Startups<span>(<?=$arrStartupsList["list"]["total"] ?? 0?>)</span></a>
+            <a href="/search/index.php?boardid=notice&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='notice') ? 'on' : ''?>">Notice<span>(<?=$arrNoticeList["list"]["total"] ?? 0?>)</span></a>
+            <a href="/search/index.php?boardid=gallery&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='gallery') ? 'on' : ''?>">Gallery<span>(<?=$arrGalleryList["list"]["total"] ?? 0?>)</span></a>
+            <a href="/search/index.php?boardid=promotion&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='promotion') ? 'on' : ''?>">Promotion<span>(<?=$arrPromotionList["list"]["total"] ?? 0?>)</span></a>
+            <a href="/search/index.php?boardid=apt_talks&sk=<?=$_GET["sk"]?>" class="<?=($_GET['boardid']=='apt_talks') ? 'on' : ''?>">APT talks<span>(<?=$arrAptTalksList["list"]["total"] ?? 0?>)</span></a>
         </div>
 
-		<?php
-		if ($arrNoticeList["list"]["total"] > 0 && (empty($_GET['boardid']) || $_GET["boardid"] == "notice")) {
-			?>
+        <?php
+        /**
+         * 검색 결과 리스트 출력
+         * @param array $listData 리스트 데이터 배열
+         * @param string $title 섹션 제목
+         * @param string $linkUrl VIEW MORE 링크 URL
+         * @param string $boardId 게시판 ID
+         * @param string $searchId 검색 ID (옵션)
+         */
+        function displaySearchResults($listData, $title, $linkUrl, $boardId, $searchId = '') {
+            if ($listData["list"]["total"] <= 0) return;
+
+            $showSection = empty($_GET['boardid']) ||
+                ($_GET["boardid"] == $boardId &&
+                    ($searchId == '' || $_GET["search_id"] == $searchId));
+
+            if (!$showSection) return;
+            ?>
             <div class="search_list">
-                <div class="btit">Notice <span>(<?= $arrNoticeList["list"]["total"] ?>)</span><a href="/news/notice.php" class="more">VIEW MORE</a></div>
+                <div class="btit"><?=$title?> <span>(<?=$listData["list"]["total"]?>)</span><a href="<?=$linkUrl?>" class="more">VIEW MORE</a></div>
                 <div class="list">
-					<?
-					for ($i = 0; $i < $arrNoticeList["list"]["total"]; $i++) {
-						$subject = preg_replace("/(" . preg_quote($_GET["sk"], '/') . ")/i", "<span>$1</span>", $arrNoticeList["list"][$i]["subject"]);
-						$contents = preg_replace("/(" . preg_quote($_GET["sk"], '/') . ")/i", "<span>$1</span>", $arrNoticeList["list"][$i]["contents"]);
-						?>
-                        <a href="/news/notice.php?boardid=edu&mode=view&idx=<?= $arrNoticeList["list"][$i]["idx"] ?>">
-                            <span class="tt"><?= $subject ?></span>
-                            <p><?= $contents ?></p>
-                        </a>
-					<?php } ?>
-                </div>
-            </div>
-		<?php } ?>
-		<?php
-		if ($arrGalleryList["list"]["total"] > 0 && (empty($_GET['boardid']) || $_GET["boardid"] == "gallery")) {
-			?>
-            <div class="search_list">
-                <div class="btit">Gallery <span>(<?= $arrGalleryList["list"]["total"] ?>)</span><a href="/news/gallery.php" class="more">VIEW MORE</a></div>
-                <div class="list">
-                    <?
-                    for ($i = 0; $i < $arrGalleryList["list"]["total"]; $i++) {
-                        $subject = preg_replace("/(" . preg_quote($_GET["sk"], '/') . ")/i", "<span>$1</span>", $arrGalleryList["list"][$i]["subject"]);
-                        $contents = preg_replace("/(" . preg_quote($_GET["sk"], '/') . ")/i", "<span>$1</span>", $arrGalleryList["list"][$i]["contents"]);
+                    <?php
+                    for ($i = 0; $i < $listData["list"]["total"]; $i++) {
+                        $subject = preg_replace("/(".preg_quote($_GET["sk"], '/').")/i", "<span>$1</span>", $listData["list"][$i]["subject"]);
+                        $contents = preg_replace("/(".preg_quote($_GET["sk"], '/').")/i", "<span>$1</span>", $listData["list"][$i]["contents"]);
+                        $viewUrl = $linkUrl . "?boardid=" . $boardId . "&mode=view&idx=" . $listData["list"][$i]["idx"];
                         ?>
-                        <a href="/news/gallery.php?boardid=edu&mode=view&idx=<?= $arrGalleryList["list"][$i]["idx"] ?>">
-                            <span class="tt"><?= $subject ?></span>
-                            <p><?= $contents ?></p>
+                        <a href="<?=$viewUrl?>">
+                            <span class="tt"><?=$subject?></span>
+                            <p><?=$contents?></p>
                         </a>
                     <?php } ?>
                 </div>
             </div>
-		<?php } ?>
+            <?php
+        }
+
+        // 각 섹션 출력
+        displaySearchResults(
+            $arrAboutList,
+            "About",
+            "/about/program_overview.php",
+            "search",
+            "about"
+        );
+
+        displaySearchResults(
+            $arrStudyList,
+            "Study Report",
+            "/resources/study_report.php",
+            "search",
+            "study_report"
+        );
+
+        displaySearchResults(
+            $arrStartupsList,
+            "Meet Startups",
+            "/startups/meet_startups.php",
+            "meet_startups"
+        );
+
+        displaySearchResults(
+            $arrNoticeList,
+            "Notice",
+            "/news/notice.php",
+            "notice"
+        );
+
+        displaySearchResults(
+            $arrGalleryList,
+            "Gallery",
+            "/news/gallery.php",
+            "gallery"
+        );
+
+        displaySearchResults(
+            $arrPromotionList,
+            "Promotion",
+            "/news/promotion.php",
+            "promotion"
+        );
+
+        displaySearchResults(
+            $arrAptTalksList,
+            "APT talks",
+            "/news/apt_talks.php",
+            "apt_talks"
+        );
+        ?>
 
 <!-- 검색된 내용이 없을 경우 -->
-<!--		<div class="no_search">-->
-<!--			<div class="tt">No search results found for <strong>‘XXX’</strong></div>-->
-<!--			<p>Please check if the spelling is correct.<br>Try searching with commonly used keywords.</p>-->
-<!--		</div>-->
+        <?php
+        if ($total_count == 0) { // 검색 결과가 하나도 없을 때
+            ?>
+            <div class="no_search">
+                <div class="tt">No search results found for <strong>'<?=$_GET["sk"]?>'</strong></div>
+                <p>Please check if the spelling is correct.<br>Try searching with commonly used keywords.</p>
+            </div>
+        <?php } ?>
 <!-- //검색된 내용이 없을 경우 -->
 
 <!-- 검색된 내용이 있을 경우 -->

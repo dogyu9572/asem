@@ -1,4 +1,3 @@
-
 <?php include_once $_SERVER["DOCUMENT_ROOT"]."/include/headHtml.php"; ?>
 <div class="header <?if($gNum=="main"){?>main<?}?>">
 	<a href="/" class="logo"><img src="/pub/images/logo.svg" alt="logo"><h1>ASEAN PLUS THREE</h1></a>
@@ -13,10 +12,12 @@
 	<button type="button" class="btn_search">Search</button>
 	<div class="search_area">
 		<div class="outbox">
+            <form action="/search/index.php" method="get">
 			<div class="inbox">
-				<input type="text" class="text" placeholder="Please enter a search term.">
+				<input type="text" name="sk"  class="text" placeholder="Please enter a search term.">
 				<button type="button" class="btn" onclick="location.href='/search/'">Search</button>
 			</div>
+            </form>
 		</div>
 	</div>
 	<a href="javascript:void(0);" class="btn_menu">

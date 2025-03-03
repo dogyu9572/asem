@@ -268,6 +268,7 @@ function fnOrderby(rdnm, rdsc){
 						<col class="w6p">
 						<col class="w6p">
 						<col class="w12p">
+                        <col class="w6p">
 						<col class="w10p">
 					</colgroup>
 					<thead>
@@ -280,6 +281,7 @@ function fnOrderby(rdnm, rdsc){
 							<th class="pc_vw">날짜</th>
 							<th class="pc_vw">등록일
 							<a href="javascript:void(0);" onclick="fnOrderby('wdate','desc')">▼</a><a href="javascript:void(0);" onclick="fnOrderby('wdate','asc')">▲</a></th>
+                            <th class="pc_vw">댓글관리</th>
 							<th class="pc_vw">관리</th>
 						</tr>
 					</thead>
@@ -331,7 +333,12 @@ function fnOrderby(rdnm, rdsc){
 							<td style="width:5%;"><?=$arrBoardList["list"][$i]['name']?></td>
 							<td style="width:5%;"><?=$arrBoardList["list"][$i]['hit']?></td>
 							<td style="width:5%;"><?=$arrBoardList["list"][$i]['schedule_date']?></td>	
-							<td style="width:15%;"><?=$arrBoardList["list"][$i]['wdate']?></td>					
+							<td style="width:15%;"><?=$arrBoardList["list"][$i]['wdate']?></td>
+                            <td style="width:10%;">
+                                <div class="btns">
+                                <a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=comment&idx=<?=$arrBoardList["list"][$i]['idx']?>&category=<?=$_GET['category']?>" class="btn">댓글관리</a>
+                                </div>
+                            </td>
 							<td style="width:10%;">
 								<div class="btns">
 									<a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=modify&idx=<?=$arrBoardList["list"][$i]['idx']?>&category=<?=$_GET['category']?>" class="btn modi">수정</a>
@@ -417,118 +424,92 @@ $(document).ready(function(){
 		$offset = (int)$_GET["offset"];
 	}
 ?>
-<div class="inner">
-	<h3 class="heading3">공지사항</h3>
-	<form name="form1" method="get" action="<?=$_SERVER["PHP_SELF"]?>">
-		<input type="hidden" name="boardid" value="<?=$arrBoardInfo["list"][0]["boardid"]?>">
-		<div class="sorting-wrap">
-			<p class="total">총 <b class="c-primaryDark"><?=$arrBoardList["total"]?></b>건</p>		
-			<div class="search-wrap">
-				<select name="sw">
-					<option value="s">제목</option>
-					<option value="c">내용</option>
-				</select>
-				<div class="search">
-					<input type="text" name="sk" value="<?=$_GET['sk']?>" maxlength="20" placeholder="검색어를 입력하세요.">
-					<button type="button" onclick="document.form1.submit()"></button>
-				</div>
-			</div>		
-		</div>
-	</form>
-	<div class="board-list data">
-		<div class="head">
-			<div class="row">
-				<div class="col sm">NO</div>
-				<div class="col full">제목</div>
-				<div class="col rg">첨부파일</div>
-				<div class="col lg">등록일</div>
-			</div>
-		</div>
-		<div class="body">
-		<?
-		if($arrBoardList["list"]["total"] > 0){
-			for($i=0; $i < $arrBoardList["list"]["total"]; $i++){				
-				//글잠금 표시
-				if($arrBoardList["list"][$i]['uselock'] == "Y"){
-					$lockImage ="";	// 글잠금표시
-				}else{
-					$lockImage ="";
-				}				
-				//순번 & 공지 & 신규표시
-				$listNum = $arrBoardList["total"]-$i-$offset;					
-				//신규글 표시
-				if(strtotime($arrBoardList["list"][$i]['wdate'])+($arrBoardInfo["list"][0]["newmark"]*86400) > mktime()){
-					$categoryTitle ='class="new"';	// new 이미지				
-				}
-				$noticeTxt = "";
-				//공지
-				if($arrBoardList["list"][$i]['no']=="0"){
-					$listNum = '<span class="chip-inform">공지</span>';
-					$noticeTxt = '<span class="chip-inform">공지</span>';
-				}					
-				//파일
-				$imgsrc[$i] = "/uploaded/board/".$arrBoardInfo["list"][0]["boardid"]."/".$arrBoardList["list"][$i]['re_name'];
-				if(!$arrBoardList["list"][$i]['re_name']){$imgsrc[$i] = "/GATE/pub/images/img_story00.png";}
-				############################ 파일 확인 #############################
-				$arrBoardArticle = getBoardArticleView($arrBoardInfo["list"][0]["boardid"], "", $arrBoardList["list"][$i]['idx'],"list");
-				for($j=0;$j<$arrBoardArticle["total_files"];$j++){
-					if(substr($arrBoardArticle["files"][$j]['re_name'],0,2) != "l_"){
-						$fileImg[$i] = '첨부파일';
-					}
-				}
+    <div class="inner">
+        <form name="form1" method="get" action="<?=$_SERVER["PHP_SELF"]?>">
+            <div class="search_box">
+                <input type="text" class="text" name="sk"  placeholder="Please enter a search term." value="<?=$_GET["sk"]?>">
+                <button type="submit" class="btn">Search</button>
+            </div>
+        </form>
 
-				if($arrBoardList["list"][$i]['etc_1']=="Y"){
-					$arrBoardList["list"][$i]['etc_txt'] = '<i class="end">답변완료</i>';
-				}else{
-					$arrBoardList["list"][$i]['etc_txt'] = '<i class="ing">문의</i>';					
-				}
-				$arrBoardList["list"][$i]['re_name'] = mb_substr($arrBoardList["list"][$i]['name'],0,1)."*".mb_substr($arrBoardList["list"][$i]['name'],-1);
-				$arrBoardList["list"][$i]['re_hp'] = mb_substr($arrBoardList["list"][$i]['homepage'],0,1)."*".mb_substr($arrBoardList["list"][$i]['homepage'],-1);
-		?>	
-			<div class="row">
-				<div class="col sm show-pc">
-					<?=$listNum?>
-				</div>
-				<div class="col full">
-					<a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=view&idx=<?=$arrBoardList["list"][$i]['idx']?>&sk=<?=$_GET['sk']?>&sw=<?=$_GET['sw']?>&offset=<?=$_GET['offset']?>&category=<?=$_GET['category']?>">
-					<?=$noticeTxt?>
-					<?=text_cut($arrBoardList["list"][$i]['subject'],70)?></a>
-				</div>
-				<div class="col rg show-pc">
-				<?if($fileImg[$i]=="첨부파일"){?><i class="file"></i><?}?>
-				</div>
-				<div class="col lg"><?=str_replace("-",".",substr($arrBoardList["list"][$i]['schedule_date'],0,10))?></div>
-				<?if($fileImg[$i]=="첨부파일"){?>
-				<div class="col rg line show-mo">
-					<i class="file"></i>
-				</div>
-				<?}?>
-			</div>
-		<?
-			}
-		}else{
-			echo "<a href='javascript:void(0);' class='no_data'>등록된 데이터가 없습니다.</a>";
-		}
-		?>
-		</div>
-	</div>
-	<div class="paging">
-		<?
-		############### paging ############### ST
-		$queryString = explode("&",$_SERVER['QUERY_STRING']);
-		$reQueryString = "";
-		$comma = "";
-		for($i=0;$i<count($queryString);$i++){
-			if(strpos($queryString[$i],"offset=")===false){
-				$reQueryString .= $comma.$queryString[$i];
-				$comma = "&";
-			}
-		}
-		echo pageNavigationUser($arrBoardList["total"],$arrBoardInfo["list"][0]["scale"],$arrBoardInfo["list"][0]["pagescale"],$_GET['offset'],$reQueryString);
-		############### paging ############### ED
-		?>	
-	</div>
-</div>
+        <div class="board_top">
+            <div class="total">Total <strong><?=number_format($arrBoardList["total"])?></strong></div>
+        </div>
+
+        <div class="board_list">
+            <table>
+                <colgroup>
+                    <col class="w16" />
+                    <col width="*" />
+                    <col class="w18" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+            <?
+            if($arrBoardList["list"]["total"] > 0){
+                for($i=0; $i < $arrBoardList["list"]["total"]; $i++){
+                    //순번 & 공지 & 신규표시
+                    $listNum = $arrBoardList["total"]-$i-$offset;
+                    $listTitle = "";
+                    $fileTitle = "";
+                    //공지
+                    if($arrBoardList["list"][$i]['no']=="0"){
+                        $categoryTitle = 'class="notice"';
+                        $listNum = '<span>Announcement</span>';
+                        $listTitle = 'announcement';
+                    }
+                    //파일
+                    $imgsrc[$i] = "/uploaded/board/".$arrBoardInfo["list"][0]["boardid"]."/".$arrBoardList["list"][$i]['re_name'];
+                    if(!$arrBoardList["list"][$i]['re_name']){
+                        $imgsrc[$i] = "/pub/images/img_gall_list_sample.png";
+                    }
+                    ############################ 파일 확인 #############################
+                    $arrBoardArticle = getBoardArticleView($arrBoardInfo["list"][0]["boardid"], "", $arrBoardList["list"][$i]['idx'],"list");
+                    for($j=0;$j<$arrBoardArticle["total_files"];$j++){
+                        if(substr($arrBoardArticle["files"][$j]['re_name'],0,2) != "l_"){
+                            $fileImg[$i] = '첨부파일';
+                            $fileTitle = 'file';
+                        }
+                    }
+            ?>
+                <tr class=" <?=$listTitle?>  <?=$fileTitle?>">
+                    <td class="num"><?=$listNum?></td>
+                    <td class="tal"><a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=view&idx=<?=$arrBoardList["list"][$i]['idx']?>&sk=<?=$_GET['sk']?>&sw=<?=$_GET['sw']?>&offset=<?=$_GET['offset']?>"><?=$arrBoardList["list"][$i]['subject']?></a></td>
+                    <td class="date"><?=date('Y.m.d', strtotime($arrBoardList["list"][$i]['wdate']))?></td>
+                </tr>
+                    <?
+                }
+            }
+            ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="board_bottom">
+            <div class="paging">
+                <?
+                ############### paging ############### ST
+                $queryString = explode("&",$_SERVER['QUERY_STRING']);
+                $reQueryString = "";
+                $comma = "";
+                for($i=0;$i<count($queryString);$i++){
+                    if(strpos($queryString[$i],"offset=")===false){
+                        $reQueryString .= $comma.$queryString[$i];
+                        $comma = "&";
+                    }
+                }
+                echo pageNavigationUser($arrBoardList["total"],$arrBoardInfo["list"][0]["scale"],$arrBoardInfo["list"][0]["pagescale"],$_GET['offset'],$reQueryString);
+                ############### paging ############### ED
+                ?>
+            </div>
+        </div> <!-- //board_bottom -->
+    </div>
 <?
 }
 ?>

@@ -251,11 +251,23 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 				<th>순서</th>
 				<td><div class="inputs"><input type="text" class="w2" style="text-align:right;" name="b_sort" maxlength="100" value="<?=$arrBoardArticle["list"][0]['b_sort']?$arrBoardArticle["list"][0]['b_sort']:"0"?>"></div></td>
 			</tr>
+            <tr>
+                <th>메뉴구분<span>*</span></th>
+                <td>
+                    <div class="inputs">
+                        <select name="search_id" class="w3">
+                            <option value="">선택</option>
+                            <option value="about" <?= $arrBoardArticle["list"][0]['search_id'] == 'about' ? 'selected' : '' ?>>About</option>
+                            <option value="study_report" <?= $arrBoardArticle["list"][0]['search_id'] == 'study_report' ? 'selected' : '' ?>>Study Report</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
 			<tr>
 				<th>제목</th>
 				<td><div class="inputs"><input type="text" class="w4" name="subject" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['subject'])?>"></div></td>
 			</tr>
-			<tr>
+            <tr style="display:none;">
 				<th>공지</th>
 				<td><div class="inputs">
 					<label class="radio"><input type="radio" name="is_notice" value="" <?if($arrBoardArticle["list"][0]['no']!="0"){echo " checked";}?>><i></i>일반</label>
