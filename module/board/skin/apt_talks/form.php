@@ -255,14 +255,6 @@ $arrCategory01 = getCategoryList("114","Y");	// 분류
 				<th>제목</th>
 				<td><div class="inputs"><input type="text" class="w4" name="subject" maxlength="100" value="<?=stripslashes($arrBoardArticle["list"][0]['subject'])?>"></div></td>
 			</tr>
-            <tr style="display:none;">
-				<th>공지</th>
-				<td><div class="inputs">
-					<label class="radio"><input type="radio" name="is_notice" value="" <?if($arrBoardArticle["list"][0]['no']!="0"){echo " checked";}?>><i></i>일반</label>
-					<label class="radio"><input type="radio" name="is_notice" value="Y" <?if($arrBoardArticle["list"][0]['no']=="0"){echo " checked";}?>><i></i>공지</label> 
-					<em></em>
-				</div></td>
-			</tr>
 			<tr style="display:none;">
 				<th>메인 노출 여부</th>
 				<td><div class="inputs">

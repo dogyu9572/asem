@@ -175,10 +175,10 @@ if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] && $_SERVER["PHP_SELF"]=="/backoff
                 <!--		<dl>
 			<dt>구분</dt>
 			<dd><select name="category" class="text" onchange="document.form1.submit()" style="width:120px;">
-			<option value="">전체</option>			
+			<option value="">전체</option>
 			<option value="ko" <?=$_GET['category']=="ko"?"selected":""?>>국문</option>
 			<option value="en" <?=$_GET['category']=="en"?"selected":""?>>영문</option>
-			
+
 			</select></dd>
 		</dl>
 		<dl>
@@ -268,6 +268,7 @@ if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] && $_SERVER["PHP_SELF"]=="/backoff
                         <col class="w6p">
                         <col class="w6p">
                         <col class="w12p">
+                        <col class="w6p">
                         <col class="w10p">
                     </colgroup>
                     <thead>
@@ -280,6 +281,7 @@ if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] && $_SERVER["PHP_SELF"]=="/backoff
                         <th class="pc_vw">날짜</th>
                         <th class="pc_vw">등록일
                             <a href="javascript:void(0);" onclick="fnOrderby('wdate','desc')">▼</a><a href="javascript:void(0);" onclick="fnOrderby('wdate','asc')">▲</a></th>
+                        <th class="pc_vw">댓글관리</th>
                         <th class="pc_vw">관리</th>
                     </tr>
                     </thead>
@@ -305,7 +307,7 @@ if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] && $_SERVER["PHP_SELF"]=="/backoff
 							}else{
 								$cmt_count = "";
 							}
-							//공지				
+							//공지
 							$categoryTitle = $arrBoardList["total"]-$i-(int)$_GET['offset'];
 							$TrClass="";
 							$noticeMo="";
@@ -332,6 +334,11 @@ if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] && $_SERVER["PHP_SELF"]=="/backoff
                                 <td style="width:5%;"><?=$arrBoardList["list"][$i]['hit']?></td>
                                 <td style="width:5%;"><?=$arrBoardList["list"][$i]['schedule_date']?></td>
                                 <td style="width:15%;"><?=$arrBoardList["list"][$i]['wdate']?></td>
+                                <td style="width:10%;">
+                                    <div class="btns">
+                                        <a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=comment&idx=<?=$arrBoardList["list"][$i]['idx']?>&category=<?=$_GET['category']?>" class="btn">댓글관리</a>
+                                    </div>
+                                </td>
                                 <td style="width:10%;">
                                     <div class="btns">
                                         <a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=modify&idx=<?=$arrBoardList["list"][$i]['idx']?>&category=<?=$_GET['category']?>" class="btn modi">수정</a>
@@ -425,53 +432,84 @@ if($_SESSION[$_SITE["DOMAIN"]]["ADMIN"]["ID"] && $_SERVER["PHP_SELF"]=="/backoff
             </div>
         </form>
 
-        <div class="gall_list">
-    <?
-    if($arrBoardList["list"]["total"] > 0){
-        for($i=0; $i < $arrBoardList["list"]["total"]; $i++){
-            //파일
-            $imgsrc[$i] = "/uploaded/board/".$arrBoardInfo["list"][0]["boardid"]."/".$arrBoardList["list"][$i]['re_name'];
-            if(!$arrBoardList["list"][$i]['re_name']){
-                $imgsrc[$i] = "/pub/images/img_gall_list_sample.png";
-            }
-            ############################ 파일 확인 #############################
-            $arrBoardArticle = getBoardArticleView($arrBoardInfo["list"][0]["boardid"], "", $arrBoardList["list"][$i]['idx'],"list");
-            for($j=0;$j<$arrBoardArticle["total_files"];$j++){
-                if(substr($arrBoardArticle["files"][$j]['re_name'],0,2) != "l_"){
-                    $fileImg[$i] = '첨부파일';
-                }
-            }
-            ?>
-            <a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=view&idx=<?=$arrBoardList["list"][$i]['idx']?>&sk=<?=$_GET['sk']?>&sw=<?=$_GET['sw']?>&offset=<?=$_GET['offset']?>">
-                <span class="imgfit"><img src="<?=$imgsrc[$i]?>" alt="no-image"><span class="bg"><span>VIEW MORE</span></span></span>
-                <p><?=$arrBoardList["list"][$i]['subject']?></p>
-            </a>
-            <?php
-        }
-    }
-    ?>
+        <div class="board_top">
+            <div class="total">Total <strong><?=number_format($arrBoardList["total"])?></strong></div>
+        </div>
+
+        <div class="board_list">
+            <table>
+                <colgroup>
+                    <col class="w16" />
+                    <col width="*" />
+                    <col class="w18" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+				<?
+				if($arrBoardList["list"]["total"] > 0){
+					for($i=0; $i < $arrBoardList["list"]["total"]; $i++){
+						//순번 & 공지 & 신규표시
+						$listNum = $arrBoardList["total"]-$i-$offset;
+						$listTitle = "";
+						$fileTitle = "";
+						//공지
+						if($arrBoardList["list"][$i]['no']=="0"){
+							$categoryTitle = 'class="notice"';
+							$listNum = '<span>Announcement</span>';
+							$listTitle = 'announcement';
+						}
+						//파일
+						$imgsrc[$i] = "/uploaded/board/".$arrBoardInfo["list"][0]["boardid"]."/".$arrBoardList["list"][$i]['re_name'];
+						if(!$arrBoardList["list"][$i]['re_name']){
+							$imgsrc[$i] = "/pub/images/img_gall_list_sample.png";
+						}
+						############################ 파일 확인 #############################
+						$arrBoardArticle = getBoardArticleView($arrBoardInfo["list"][0]["boardid"], "", $arrBoardList["list"][$i]['idx'],"list");
+						for($j=0;$j<$arrBoardArticle["total_files"];$j++){
+							if(substr($arrBoardArticle["files"][$j]['re_name'],0,2) != "l_"){
+								$fileImg[$i] = '첨부파일';
+								$fileTitle = 'file';
+							}
+						}
+						?>
+                        <tr class=" <?=$listTitle?>  <?=$fileTitle?>">
+                            <td class="num"><?=$listNum?></td>
+                            <td class="tal"><a href="<?=$_SERVER["PHP_SELF"]?>?boardid=<?=$arrBoardInfo["list"][0]["boardid"]?>&mode=view&idx=<?=$arrBoardList["list"][$i]['idx']?>&sk=<?=$_GET['sk']?>&sw=<?=$_GET['sw']?>&offset=<?=$_GET['offset']?>"><?=$arrBoardList["list"][$i]['subject']?></a></td>
+                            <td class="date"><?=date('Y.m.d', strtotime($arrBoardList["list"][$i]['wdate']))?></td>
+                        </tr>
+						<?
+					}
+				}
+				?>
+                </tbody>
+            </table>
         </div>
 
         <div class="board_bottom">
             <div class="paging">
-                <?
-                ############### paging ############### ST
-                $queryString = explode("&",$_SERVER['QUERY_STRING']);
-                $reQueryString = "";
-                $comma = "";
-                for($i=0;$i<count($queryString);$i++){
-                    if(strpos($queryString[$i],"offset=")===false){
-                        $reQueryString .= $comma.$queryString[$i];
-                        $comma = "&";
-                    }
-                }
-                echo pageNavigationUser($arrBoardList["total"],$arrBoardInfo["list"][0]["scale"],$arrBoardInfo["list"][0]["pagescale"],$_GET['offset'],$reQueryString);
-                ############### paging ############### ED
-                ?>
+				<?
+				############### paging ############### ST
+				$queryString = explode("&",$_SERVER['QUERY_STRING']);
+				$reQueryString = "";
+				$comma = "";
+				for($i=0;$i<count($queryString);$i++){
+					if(strpos($queryString[$i],"offset=")===false){
+						$reQueryString .= $comma.$queryString[$i];
+						$comma = "&";
+					}
+				}
+				echo pageNavigationUser($arrBoardList["total"],$arrBoardInfo["list"][0]["scale"],$arrBoardInfo["list"][0]["pagescale"],$_GET['offset'],$reQueryString);
+				############### paging ############### ED
+				?>
             </div>
         </div> <!-- //board_bottom -->
     </div>
-
-    <?
+	<?
 }
 ?>

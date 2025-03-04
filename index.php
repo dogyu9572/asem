@@ -1,6 +1,12 @@
 <?php $gNum="main"; ?>
 <?php include("pub/inc/_dtd.php") ?>
 <?php include("pub/inc/_header.php") ?>
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/module/board/board.lib.php";
+$dblink = SetConn($_conf_db["main_db"]);
+$arrNewsListAll = getBoardListBaseNFile("notice", "", "", "", 4, 0,'', "user");
+
+?>
 <div id="mainContent" class="main_wrap">
 
 	<div class="mvisual">
@@ -45,10 +51,9 @@
 				</div>
 			</div>
 			<div class="list">
-				<a href="/news/notice_view.php"><span>News Headlines News Headlines News Headlines News Headlines News Headlines News Headlines...</span><p>2025.01.22</p></a>
-				<a href="/news/notice_view.php"><span>News Headlines News Headlines News Headlines News Headlines News Headlines News Headlines...</span><p>2025.01.22</p></a>
-				<a href="/news/notice_view.php"><span>News Headlines News Headlines News Headlines News Headlines News Headlines News Headlines...</span><p>2025.01.22</p></a>
-				<a href="/news/notice_view.php"><span>News Headlines News Headlines News Headlines News Headlines News Headlines News Headlines...</span><p>2025.01.22</p></a>
+				<?php for($i=0;$i<$arrNewsListAll["list"]["total"];$i++){?>
+				<a href="/news/notice.php?boardid=edu&mode=view&idx=<?=$arrNewsListAll["list"][$i]["idx"]?>"><span><?=$arrNewsListAll["list"][$i]["subject"]?></span><p><?=date('Y.m.d', strtotime($arrNewsListAll["list"][$i]['wdate']))?></p></a>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
